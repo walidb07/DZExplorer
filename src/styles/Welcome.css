@@ -48,7 +48,7 @@
 
   
 
-  .centerimage {
+  .center-content {
     text-align: center;
     padding-top: 120px; /* Adjust the padding value as needed */
     padding-bottom: 120px; /* Adjust the padding value as needed */
@@ -62,11 +62,11 @@
     font-size: 20pt;
   }
 
-  .centerimage *{
+  .center-content *{
     margin-top: 30px;
   }
 
-  .centerimage h1{
+  .center-content h1{
     margin-top: 30px;
     font-size: 50px;
   }
@@ -76,7 +76,7 @@
     font-size: 15pt;
   }
 
-  .centerimage img {
+  .center-content img {
     
     margin: 0 auto;
     position: absolute; /* Position the image */
@@ -172,7 +172,7 @@
     border-radius: 50px;
   }
   
-  .testimonial-section {
+  .footer {
     position: relative;
     top: 2000px;
     left: 0;

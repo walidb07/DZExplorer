@@ -1,0 +1,256 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+
+
+  
+  #root {
+    background: linear-gradient(to bottom, #D8E4FF, white);
+    background-repeat: no-repeat; /* Prevent background from repeating */
+    background-attachment: fixed; /* Fix the background position */
+    background-size: cover; /* Adjust background size */
+    font-family: Poppins, sans-serif;
+    position: relative;
+    height:100%;
+  }
+  
+
+  /* Style the navbar */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    height: 60px;
+    padding: 0 20px;
+    color:black;
+  }
+  
+  /* Style the logo */
+  .logo img {
+    height: 40px;
+  }
+  
+  /* Style the navigation buttons */
+  .nav-buttons a {
+    
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 30px;
+    background-color: transparent;
+    color:black;
+  }
+
+  
+
+  .centerimage {
+    text-align: center;
+    padding-top: 120px; /* Adjust the padding value as needed */
+    padding-bottom: 120px; /* Adjust the padding value as needed */
+  }
+
+  .apropos{
+    position: relative;
+    width: 50%;
+    top:950px;
+    left:650px;
+    font-size: 20pt;
+  }
+
+  .centerimage *{
+    margin-top: 30px;
+  }
+
+  .centerimage h1{
+    margin-top: 30px;
+    font-size: 50px;
+  }
+  
+  .desc {
+    margin-top: 30px;
+    font-size: 15pt;
+  }
+
+  .centerimage img {
+    
+    margin: 0 auto;
+    position: absolute; /* Position the image */
+    top: 300px; /* Adjust the top value to move the image upwards */
+    left: 50%; /* Adjust the left value to center the image horizontally */
+    transform: translate(-50%); /* Center the image horizontally */
+    z-index: 0  ; /* Set a lower z-index value to position the image behind other elements */
+    /* Add any additional styles for your image */
+  }
+  
+  /* Style the active navigation button */
+  .nav-buttons a.active {
+    border-bottom: 4px solid #31E981;
+  }
+  
+  /* Style the user buttons */
+  .user-buttons button {
+    font-size: 18px;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 50px;
+  }
+  
+  /* Style the register button */
+  .register-btn {
+    background-color: black;
+    color:white;
+    border-radius: 50px;
+  }
+  
+  /* Style the login button */
+  .login-btn {
+    background-color: transparent;
+    color:black;
+    border-radius: 50px;
+  }
+  
+  /* Style the banner */
+  .banner {
+    background-size: cover;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+  }
+
+
+  
+  /* Style the banner heading */
+  .banner h1 {
+    color: black;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the green text in the banner heading */
+  .green-text {
+    color: #31E981;
+  }
+  
+  /* Style the banner paragraph */
+  .banner p {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  
+
+  /* Style the call-to-action buttons */
+  .cta-buttons button {
+    
+    font-size: 18px;
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  /* Style the green button */
+  .green-btn {
+    background-color: #31E981;
+    color:white;
+    border-radius: 50px;
+  }
+  
+  /* Style the white button */
+  .white-btn {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    border-radius: 50px;
+  }
+  
+  .testimonial-section {
+    position: relative;
+    top: 2000px;
+    left: 0;
+    width: 100%;
+    background-color: #00120B;
+    color: white;
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    position:relative;
+    right:20%;
+  }
+  
+  .testimonial-carousel {
+    display: flex;
+    justify-content: center; /* Center align the cards horizontally */
+    align-items: center;
+    flex-wrap: wrap; /* Allow cards to wrap onto a new line */
+  }
+  
+  
+  .testimonial-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+    width: 300px;
+    margin-bottom: 20px; /* Add some spacing between cards */
+    color:black;
+    margin: 0 50px;
+  }
+  
+  .testimonial-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .testimonial-role {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .testimonial-text {
+    margin-top: 20px;
+  }
+  
+  .testimonial-rating {
+    color: #FFD700;
+     /* Set the color for the filled stars */
+  }
+  
+  .testimonial-rating .star {
+    display: inline-block;
+    width: 20px; /* Set the width of each star */
+    height: 20px; /* Set the height of each star */
+  }
+  
+  .testimonial-rating .star::before {
+    content: '\2605'; /* Unicode character for a star */
+    font-size: 20px; /* Set the size of the stars */
+    line-height: 20px; /* Set the line height to vertically center the star */
+    color: inherit; /* Inherit the color from the parent element */
+  }
+
+  .testimonial-rating .emptystar::before {
+    content: '\2606'; /* Unicode character for a star */
+    font-size: 20px; /* Set the size of the stars */
+    line-height: 20px; /* Set the line height to vertically center the star */
+    color: inherit; /* Inherit the color from the parent element */
+  }
+  
+  .testimonial-rating .star.active {
+    background-color: #FFD700; /* Set the color for the filled stars */
+  }
+  

@@ -39,7 +39,7 @@ h1{
     font-size: 35pt;
 }
 
-.grid-container {
+.grid-container-login {
     display:  grid;
     grid-template-columns: repeat(1, 1fr); /* Two columns */
     grid-template-rows: repeat(2, 1fr);    /* Three rows */
@@ -79,7 +79,7 @@ h1{
     margin-bottom: 20px;     
   }
 
-  input[type="text"] {
+  .login-textbox {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid black;

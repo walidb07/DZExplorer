@@ -1,0 +1,62 @@
+.calendar-container {
+    width: 300px;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 130%;
+  }
+
+  .calendar-table td.today {
+    background-color: #31e981; /* Set the desired background color */
+    font-weight: bold; /* Make the font bold */
+    width: 30px; /* Adjust the width to your desired size */
+    height: 30px; /* Adjust the height to your desired size */
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%; /* Create a perfect circle */
+  }
+  
+  
+  .calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .calendar-header h1 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .calendar-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  .calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .calendar-table th,
+  .calendar-table td {
+    
+    text-align: center;
+  }
+  
+  .calendar-table th {
+    background-color: #fff;
+  }
+  
+  .calendar-table td {
+    background-color: #fff;
+    width: 30px; /* Adjust the width to your desired size */
+  height: 30px; /* Adjust the height to your desired size */
+  text-align: center;
+  vertical-align: middle;
+  }

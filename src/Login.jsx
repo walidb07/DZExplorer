@@ -20,14 +20,14 @@ function Register(){
             <h1>Se connecter</h1>
             <div className='green-line'></div>
             <p>Connectez-vous à votre compte pour continuer</p>
-            <div className="grid-container">
+            <div className="grid-container-login">
                 <div className="grid-item-login">
                     <h3>Email</h3>
-                    <input type="text" placeholder="Entrez votre email"/>
+                    <input className='login-textbox' type="text" placeholder="Entrez votre email"/>
                 </div>
                 <div className="grid-item-login">
                     <h3>Mot de passe</h3>
-                    <input type="text" placeholder="Entrez votre mot de passe"/>
+                    <input className='login-textbox' type="text" placeholder="Entrez votre mot de passe"/>
                 </div>
             </div>
             <button className="register-button">Se connecter</button>

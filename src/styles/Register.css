@@ -39,24 +39,14 @@ h1{
     font-size: 35pt;
 }
 
-.grid-container {
+.grid-container-register {
     display:  grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     grid-template-rows: repeat(3, 1fr);    /* Three rows */
   }
 
-  .grid-container-login {
-    display:  grid;
-    grid-template-columns: repeat(1, 1fr); /* Two columns */
-    grid-template-rows: repeat(2, 1fr);    /* Three rows */
-  }
-
   .grid-item {
     padding: 20px;
-  }
-
-  .grid-item-login {
-    padding: 30px;
   }
 
   
@@ -84,7 +74,7 @@ h1{
     margin-bottom: 20px;     
   }
 
-  input[type="text"] {
+  .register-textbox {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid black;

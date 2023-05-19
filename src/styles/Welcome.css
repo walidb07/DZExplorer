@@ -52,12 +52,13 @@
     text-align: center;
     padding-top: 120px; /* Adjust the padding value as needed */
     padding-bottom: 120px; /* Adjust the padding value as needed */
+    height:3800px;
   }
 
   .apropos{
     position: relative;
     width: 50%;
-    top:950px;
+    top: 1400px;
     left:650px;
     font-size: 20pt;
   }
@@ -85,6 +86,10 @@
     transform: translate(-50%); /* Center the image horizontally */
     z-index: 0  ; /* Set a lower z-index value to position the image behind other elements */
     /* Add any additional styles for your image */
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
   }
   
   /* Style the active navigation button */
@@ -174,7 +179,7 @@
   
   .footer {
     position: relative;
-    top: 2000px;
+    top: 0;
     left: 0;
     width: 100%;
     background-color: #00120B;

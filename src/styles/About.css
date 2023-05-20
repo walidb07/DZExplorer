@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+.root-about {
+    background: linear-gradient(to bottom, #D8E4FF, white);
+    background-repeat: no-repeat; /* Prevent background from repeating */
+    background-attachment: fixed; /* Fix the background position */
+    background-size: cover; /* Adjust background size */
+    font-family: Poppins, sans-serif;
+    position: relative;
+    height: 100vh;
+  }

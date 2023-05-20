@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 //import './styles/index.css'
 import Welcome from './Welcome'
-import Tabs from './Tabs'
 import Register from './Register'
 import Login from './Login'
+import About from './About'
+import Contact from './Contact'
 
 import {
   BrowserRouter as Router,
@@ -28,6 +29,14 @@ const router=createBrowserRouter([
   {
     path: "/login",
     element: <Login/>,
+  },
+  {
+    path: "/about",
+    element: <About/>,
+  },
+  {
+    path: "/contact",
+    element: <Contact/>,
   },
   ]);
 

@@ -14,9 +14,9 @@ function Welcome() {
             <img src="src/logo.png" alt="Logo"/>
           </div>
           <div className="nav-buttons">
-            <a href="#" className="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="/" className="active">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
           </div>
           <div className="user-buttons">
             <a href="/register"><button className="register-btn">Register</button></a>

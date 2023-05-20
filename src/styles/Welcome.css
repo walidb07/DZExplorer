@@ -2,8 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
   }
 
 
@@ -104,6 +102,9 @@
     margin-left: 10px;
     padding: 10px 20px;
     border-radius: 50px;
+    border:none;
+    font-family: inherit;
+    cursor:pointer;
   }
   
   /* Style the register button */
@@ -152,14 +153,17 @@
   
 
   /* Style the call-to-action buttons */
-  .cta-buttons button {
-    
+  .cta-buttons button { 
+    position: relative;
     font-size: 18px;
     text-decoration: none;
     margin-right: 10px;
     padding: 12px 24px;
     border-radius: 50px;
-    cursor: pointer;
+    border:none;
+    font-family: inherit;
+    cursor:pointer;
+    z-index: 1;
   }
   
   /* Style the green button */

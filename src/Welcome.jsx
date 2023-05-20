@@ -1,6 +1,11 @@
 import './styles/Welcome.css'
 
 function Welcome() {
+
+  const handleButtonClick = (event) => {
+  };
+
+
     return (
     <>
       <header>
@@ -9,13 +14,13 @@ function Welcome() {
             <img src="src/logo.png" alt="Logo"/>
           </div>
           <div className="nav-buttons">
-            <a href="#" className="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="/" className="active">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
           </div>
           <div className="user-buttons">
-            <button href="#" className="register-btn">Register</button>
-            <button href="#" className="login-btn">Login</button>
+            <a href="/register"><button className="register-btn">Register</button></a>
+            <a href="/login"><button className="login-btn">Login</button></a>
           </div>
         </div>
       </header>
@@ -24,8 +29,8 @@ function Welcome() {
           <h1>Votre Prochaine Destination De <br/> Voyage est <span className="green-text">l'Algérie!</span></h1>
           <p className="desc">Chez nous, les clients sont toujours satisfaits grâce à notre large choix d'options disponibles.</p>
           <div className="cta-buttons">
-              <button href="#" className="green-btn">Register</button>
-              <button href="#" className="white-btn">Login</button>
+          <a href="/register"><button href="#" className="green-btn">Register</button></a>
+          <a href="/login"><button href="#" className="white-btn">Login</button></a>
           </div>
           <div className="apropos">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor ipsum. Proin iaculis 

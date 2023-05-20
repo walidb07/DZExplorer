@@ -1,7 +1,10 @@
 import Calendar from './Calendar'
-import './styles/Home.css'
+import './styles/Tabs.css'
 
 function Tabs() {
+    const handleButtonClick = (event) => {
+      };
+
     return(
         <>
         <div className="welcome-section">
@@ -10,10 +13,10 @@ function Tabs() {
                     <img src="logo.png" alt="Logo"></img>
                 </div>
                 <div className="tab-container">
-                    <button className="tab-active">Accueil</button>
-                    <button className="tab">Carte</button>
-                    <button className="tab">Actualités</button>
-                    <button className="tab">Se déconnecter</button>
+                    <button onClick={handleButtonClick} className="tab-active" >Accueil</button>
+                    <button onClick={handleButtonClick} className="tab" >Carte</button>
+                    <button onClick={handleButtonClick} className="tab" >Actualités</button>
+                    <button onClick={handleButtonClick} className="tab" >Se déconnecter</button>
                 </div>
                 <Calendar />
             </div>

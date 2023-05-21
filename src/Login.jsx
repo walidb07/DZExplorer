@@ -9,7 +9,7 @@ function TextField() {
  }
 }
 
-function Register(){
+function Login(){
     return(
         <>
         <div className='root-login'>
@@ -40,4 +40,4 @@ function Register(){
     )
 }
 
-export default Register
+export default Login

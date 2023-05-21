@@ -6,6 +6,7 @@ import Register from './Register'
 import Login from './Login'
 import About from './About'
 import Contact from './Contact'
+import Tabs from './Tabs'
 
 import {
   BrowserRouter as Router,
@@ -37,6 +38,10 @@ const router=createBrowserRouter([
   {
     path: "/contact",
     element: <Contact/>,
+  },
+  {
+    path: "/tabs",
+    element: <Tabs/>,
   },
   ]);
 

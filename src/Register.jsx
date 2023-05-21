@@ -40,11 +40,11 @@ function Register(){
                     </div>
                     <div className="grid-item">
                         <h3>Mot de passe</h3>
-                        <input className='register-textbox' type="text" placeholder="Entrez votre mot de passe"/>
+                        <input className='register-textbox' type="password" placeholder="Entrez votre mot de passe"/>
                     </div>
                     <div className="grid-item">
                     <   h3>Confirmer le mot de passe</h3>
-                        <input className='register-textbox' type="text" placeholder="Entrez votre mot de passe"/>
+                        <input className='register-textbox' type="password" placeholder="Entrez votre mot de passe"/>
                     </div>
                 </div>
                 <button className="register-button">S'inscrire</button>

@@ -1,5 +1,5 @@
 import Calendar from './Calendar'
-import './styles/Tabs.css'
+import '../styles/common/Tabs.css'
 
 function Tabs() {
     const handleButtonClick = (event) => {

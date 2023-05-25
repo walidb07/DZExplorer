@@ -6,7 +6,7 @@ import Register from './Register'
 import Login from './Login'
 import About from './About'
 import Contact from './Contact'
-import Tabs from './Tabs'
+import Tabs from './common/Tabs'
 
 import {
   BrowserRouter as Router,

@@ -11,7 +11,7 @@ function Welcome() {
       <header>
         <div className="navbar">
           <div className="logo">
-            <img src="src/logo.png" alt="Logo"/>
+            <img src="src/images/logo-bold.svg" alt="Logo"/>
           </div>
           <div className="nav-buttons">
             <a href="/" className="active">Home</a>

@@ -23,14 +23,15 @@
     align-items: center;
     justify-content: space-between;
     background-color: transparent;
-    height: 60px;
+    height: 85px;
     padding: 0 20px;
     color:black;
   }
-  
+
+
   /* Style the logo */
   .logo img {
-    height: 40px;
+    height: 10px;
   }
   
   /* Style the navigation buttons */

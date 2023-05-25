@@ -25,14 +25,6 @@ color: #FFFFFF;
     justify-content: center;
 }
 
-.admin-field img{
-    width: 4%;
-    height: 4%;
-    align-self: center;
-    margin-right: 5px;
-    margin-left: 35px;
-}
-
 
 
 .admin-login-wrap {
@@ -50,6 +42,7 @@ box-shadow: 4px 4px 4px 3px rgba(242, 255, 248, 0.38);
 border-radius: 51.5px;
 border: none;
 font-family: inherit;
+font-size: 12pt;
 font-weight: bold;
 color: white;
 width: 35%;
@@ -58,6 +51,21 @@ padding: 1%;
 
 .admin-login-wrap *{
     margin: 20px;
+}
+.account-img{
+    width: 4%;
+    height: 4%;
+    align-self: center;
+    margin-right: 5px;
+    margin-left: 35px;
+}
+
+.password-img{
+    width: 3.2%;
+    height: 3.2%;
+    align-self: center;
+    margin-right: 5px;
+    margin-left: 37px;
 }
 
 

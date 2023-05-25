@@ -77,11 +77,15 @@ h1{
   .register-textbox {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #c4c4c4;
     outline: none;
     font-family: inherit;
     font-size: 8;
     width: 100%;
+  }
+
+  .register-textbox:focus{
+    border-bottom: 1px solid rgb(0, 0, 0);
   }
   
   .green-line{

@@ -81,8 +81,8 @@ padding: 1%;
     color: #FFFFFF;
 }
 
-::placeholder{
-    color: #e4e4e4;
+.admin-input::placeholder{
+        color: #dddddd;
 }
 
 .link{

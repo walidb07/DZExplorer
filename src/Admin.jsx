@@ -4,7 +4,6 @@ import Tabs from './common/Tabs';
 
 
 
-
 function Admin(){
     return(
         <>
@@ -21,9 +20,8 @@ function Admin(){
                 <input className='admin-input' type="password" placeholder="Mot de passe"/>
 
             </div>
-            <button>
-                Connexion
-            </button>
+            
+            <button>Connexion</button>
             <a className='link' href='#'>Mot de passe oublié?</a>
         </div>
         </>

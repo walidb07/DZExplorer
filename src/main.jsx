@@ -7,6 +7,7 @@ import Login from './Login'
 import About from './About'
 import Contact from './Contact'
 import Tabs from './common/Tabs'
+import Admin from './Admin'
 
 import {
   BrowserRouter as Router,
@@ -43,6 +44,10 @@ const router=createBrowserRouter([
     path: "/tabs",
     element: <Tabs/>,
   },
+  {
+    path: "/admin",
+    element: <Admin/>,
+  }
   ]);
 
 ReactDOM.createRoot( document.getElementById('root')).render(

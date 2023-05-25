@@ -1,0 +1,84 @@
+.background-admin{
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -9999;
+}
+
+.admin-logo{
+/* identical to box height */
+color: #FFFFFF;
+}
+
+.admin-field {
+    position: relative  ;
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 51.5px;
+    z-index: 1;
+    justify-content: center;
+}
+
+.admin-field img{
+    width: 4%;
+    height: 4%;
+    align-self: center;
+    margin-right: 5px;
+    margin-left: 35px;
+}
+
+
+
+.admin-login-wrap {
+    padding-top: 5%;
+    justify-self: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-login-wrap button{
+
+background: #31E981;
+box-shadow: 4px 4px 4px 3px rgba(242, 255, 248, 0.38);
+border-radius: 51.5px;
+border: none;
+font-family: inherit;
+font-weight: bold;
+color: white;
+width: 35%;
+padding: 1%;
+}
+
+.admin-login-wrap *{
+    margin: 20px;
+}
+
+
+
+.admin-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 10;
+    width: 250%;
+    color: #FFFFFF;
+}
+
+::placeholder{
+    color: #e4e4e4;
+}
+
+.link{
+    color: #FFFFFF;
+}
+
+

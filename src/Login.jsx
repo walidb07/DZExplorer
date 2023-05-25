@@ -28,7 +28,7 @@ function Login(){
                     </div>
                     <div className="grid-item-login">
                         <h3>Mot de passe</h3>
-                        <input className='login-textbox' type="text" placeholder="Entrez votre mot de passe"/>
+                        <input className='login-textbox' type="password" placeholder="Entrez votre mot de passe"/>
                     </div>
                 </div>
                 <button className="register-button">Se connecter</button>

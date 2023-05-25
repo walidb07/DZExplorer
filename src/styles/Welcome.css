@@ -6,7 +6,7 @@
 
 
   
-  #root {
+  .root-wrap {
     background: linear-gradient(to bottom, #D8E4FF, white);
     background-repeat: no-repeat; /* Prevent background from repeating */
     background-attachment: fixed; /* Fix the background position */

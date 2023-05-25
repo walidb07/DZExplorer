@@ -7,7 +7,7 @@ function Welcome() {
 
 
     return (
-    <>
+    <div className='root-wrap'>
       <header>
         <div className="navbar">
           <div className="logo">
@@ -103,7 +103,7 @@ function Welcome() {
             </div>
           </div>
       </section>    
-    </>
+    </div>
     )
 }
 

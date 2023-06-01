@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-//import './styles/index.css'
+import './styles/index.css'
 import Welcome from './Welcome'
 import Register from './Register'
 import Login from './Login'
@@ -17,12 +17,18 @@ import {
   Link,
   RouterProvider
 } from 'react-router-dom';
+import Dashboard from './common/Dashboard'
+
 
 
 const router=createBrowserRouter([
   {
     path: "/",
     element: <Welcome/>,
+  },
+  {
+    path: "/test",
+    element: <Dashboard/>,
   },
   {
     path: "/register",

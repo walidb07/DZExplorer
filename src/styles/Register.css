@@ -95,3 +95,14 @@ h1{
     bottom: 10px;
     width:100px;
    }
+
+   .dropdown{
+    position:fixed;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
+    outline: none;
+    font-family: inherit;
+    font-size: 8;
+    width: 100%;
+   }

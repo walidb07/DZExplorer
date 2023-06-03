@@ -28,7 +28,7 @@
 }
 
 .right-UI * {
-    margin:4px;
+  margin:2px;
 }
 
 .right-UI img{
@@ -42,12 +42,19 @@ h1{
 .grid-container-register {
     display:  grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-template-rows: repeat(3, 1fr);    /* Three rows */
+    grid-template-rows: repeat(2, 1fr);    /* Three rows */
+    grid-column-gap: 90px;
+  }
+
+  .grid-container-register-2 {
+    display:  grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(1, 1fr);    /* Three rows */
   }
 
   .grid-item {
-    padding: 20px;
-  }
+    padding: 20px; 
+ }
 
   
   .connection-link:link {
@@ -96,13 +103,11 @@ h1{
     width:100px;
    }
 
-   .dropdown{
-    position:fixed;
-    background-color: white;
-    border: none;
-    border-bottom: 1px solid #c4c4c4;
-    outline: none;
-    font-family: inherit;
-    font-size: 8;
-    width: 100%;
-   }
+
+   .error-message {
+    color: red;
+  }
+  
+#country-dropdown{
+  width:540px;
+}

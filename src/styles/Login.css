@@ -19,7 +19,7 @@
     height: 100%;
 }
 
-.right-UI{
+.right-UI-login{
     width: 57%;
     height: 100%;
     display: flex;
@@ -27,11 +27,11 @@
     align-items: center;
 }
 
-.right-UI * {
+.right-UI-login * {
     margin:4px;
 }
 
-.right-UI img{
+.right-UI-login img{
     height: 15%;
 }
 

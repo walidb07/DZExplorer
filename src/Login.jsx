@@ -16,7 +16,7 @@ function Login(){
             <div className="left-image">
                 <img src="src/images/Register-Login/Group 31.png" alt=""></img>
             </div>
-            <div className='right-UI'>
+            <div className='right-UI-login'>
                 <img src="src/images/Register-Login/Group 32.png" alt=""></img>
                 <h1>Se connecter</h1>
                 <div className='green-line'></div>

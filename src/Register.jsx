@@ -225,10 +225,11 @@ function Register() {
 
 
   const validateEmail = (email) => {
-    // Simple email validation regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Updated email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     return emailRegex.test(email);
   };
+  
 
   const handleRegister = () => {
     const name = document.getElementById('name').value;

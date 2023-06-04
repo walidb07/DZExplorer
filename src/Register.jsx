@@ -202,7 +202,9 @@ const countries = [
   { value: 'zimbabwe', label: 'Zimbabwe' },
 ];
 
-
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+};
 
 function TextField() {
   const [text, setText] = useState('');
@@ -214,7 +216,7 @@ function TextField() {
 
 function Register() {
   const [errorMessage, setErrorMessage] = useState('');
-
+  const [successMessage, setSuccessMessage] = useState('');
 
   const [selectedCountry, setSelectedCountry] = useState(null);
 
@@ -268,10 +270,19 @@ function Register() {
                     email: email,
                     motDePasse: password})
          .then(response => {
-           // Handle successful registration
+          if (response.data === 'user with the same email already exists') {
+            setErrorMessage('Compte existe déja');
+            setSuccessMessage('');
+          } else {
+            setErrorMessage('');
+            setSuccessMessage('Compte créé avec succès');
+            
+          }
+          
          })
          .catch(error => {
-           // Handle registration error
+          setErrorMessage('Une erreur s\'est produite lors de la création du compte');
+          setSuccessMessage('');
          });
       setErrorMessage('');
     }
@@ -346,6 +357,7 @@ function Register() {
             </div>
           </div>
           {errorMessage && <p className='error-message'>{errorMessage}</p>}
+          {successMessage && <p className='success-message'>{successMessage}</p>}
           <button className='register-button' onClick={handleRegister}>
             S'inscrire
           </button>

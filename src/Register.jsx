@@ -4,6 +4,7 @@ import axios from 'axios';
 import Select from 'react-select';
 
 const countries = [
+  { value: '', label: 'Aucun'},
   { value: 'afghanistan', label: 'Afghanistan' },
   { value: 'albanie', label: 'Albanie' },
   { value: 'algérie', label: 'Algérie' },
@@ -273,6 +274,9 @@ function Register() {
           if (response.data === 'user with the same email already exists') {
             setErrorMessage('Compte existe déja');
             setSuccessMessage('');
+          } else if (response.data === 'error') {
+            setErrorMessage('Erreur lors de la création du compte');
+            setSuccessMessage('');
           } else {
             setErrorMessage('');
             setSuccessMessage('Compte créé avec succès');
@@ -321,7 +325,7 @@ function Register() {
                 maxLength={10}
                 placeholder='Entrez votre numéro'
                 onKeyDown={(e) => {
-                  if (!((e.keyCode > 95 && e.keyCode < 106) || (e.keyCode > 47 && e.keyCode < 58) || e.keyCode === 8)) {
+                  if (!((e.keyCode > 95 && e.keyCode < 106) || (e.keyCode > 47 && e.keyCode < 58) || e.keyCode === 8 || e.keyCode === 9)) {
                     e.preventDefault();
                   }
                 }}
@@ -332,7 +336,7 @@ function Register() {
             </div>
             </div>
             <div id="country-dropdown">
-              <h3>Pays</h3>
+              <h3>Pays*</h3>
               <Select
                 className='register-select'
                 options={countries}

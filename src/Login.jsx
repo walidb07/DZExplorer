@@ -22,14 +22,16 @@ function Login() {
     const country = "null";
 
       axios.get('http://127.0.0.1:8000/Visiteur/', {
-        email: "walidforfour@gmail.com",
-        motDePasse: "viggen"
-        })
+        params: {
+          email: email,
+          motDePasse: password
+      }
+})
         .then(response => {
-        if (response.data === 'sd') {
-            setErrorMessage('Compte existe déja');
-        } else if (response.data === 'error') {
-            setErrorMessage('Une erreur s\'est produite');
+        if (response.data === 'Unknown user') {
+            setErrorMessage('Email inexistant');
+        } else if (response.data === 'Wrong password') {
+            setErrorMessage('Mot de passe incorrect');
         } else {
             setErrorMessage('');
         }

@@ -284,7 +284,7 @@ function Register() {
           setErrorMessage('Une erreur s\'est produite lors de la création du compte');
           setSuccessMessage('');
          });
-      setErrorMessage('');
+      
     }
   };
 

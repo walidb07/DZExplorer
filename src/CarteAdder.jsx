@@ -1,8 +1,9 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './styles/CarteAdder.css';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import axios from 'axios';
 
 function CarteAdder() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -10,20 +11,36 @@ function CarteAdder() {
 
   const handleAddCarte = () => {
     const carteName = document.getElementById('mapName').value;
+    const mapCenter = getMapCenter();
+    const zoom = getMapZoom();
     if (carteName === '') {
         setErrorMessage('Veuillez choisir un nom pour la carte');
     } else {
         setErrorMessage('');
-        //axios.post('http://127.0.0.1:8000/Visiteur/', {})
+        axios.post('http://127.0.0.1:8000/Region/', {
+            Nom: carteName,
+            xcoor: mapCenter.lat,
+            ycoor: mapCenter.lng,
+            zoom: zoom
+        })
     }
   };
-
+  const mapRef = useRef(null) 
+  const getMapZoom = () => {
+    console.log("object", mapRef.current.getZoom());
+    return mapRef.current.getZoom()
+    };
+  const getMapCenter = () => {
+    console.log("object", mapRef.current.getCenter());
+    return mapRef.current.getCenter()
+  }
 
   return (
     <>
     <div className='CarteAdderBody'>
       <div id="map">
-        <MapContainer center={position} zoom={5} scrollWheelZoom={true}>
+        <MapContainer center={position} zoom={5} scrollWheelZoom={true} ref={mapRef} 
+        whenCreated={(mapInstance) => (mapRef.current = mapInstance)} whenReady={() => {}}>
           
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"

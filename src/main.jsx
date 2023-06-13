@@ -30,7 +30,7 @@ const router=createBrowserRouter([
   },
   {
     path: "/test",
-    element: <CarteAdder/>,
+    element: <Carte/>,
   },
   {
     path: "/register",
@@ -55,6 +55,10 @@ const router=createBrowserRouter([
   {
     path: "/admin",
     element: <Admin/>,
+  },
+  {
+    path: "/CarteAdder",
+    element: <CarteAdder/>,
   }
   ]);
 

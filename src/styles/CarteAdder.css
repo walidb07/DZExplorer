@@ -36,3 +36,8 @@
     flex-direction: column;
     align-items: center;
 }
+
+#map{
+    height: 100vh;
+    width: 2000px;
+}

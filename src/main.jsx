@@ -8,6 +8,7 @@ import About from './About'
 import Contact from './Contact'
 import Tabs from './common/Tabs'
 import Admin from './Admin'
+import Carte from './Carte'
 
 import {
   BrowserRouter as Router,
@@ -28,7 +29,7 @@ const router=createBrowserRouter([
   },
   {
     path: "/test",
-    element: <Dashboard/>,
+    element: <Carte/>,
   },
   {
     path: "/register",

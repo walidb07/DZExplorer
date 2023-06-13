@@ -9,6 +9,7 @@ import Contact from './Contact'
 import Tabs from './common/Tabs'
 import Admin from './Admin'
 import Carte from './Carte'
+import CarteAdder from './CarteAdder'
 
 import {
   BrowserRouter as Router,
@@ -29,7 +30,7 @@ const router=createBrowserRouter([
   },
   {
     path: "/test",
-    element: <Carte/>,
+    element: <CarteAdder/>,
   },
   {
     path: "/register",

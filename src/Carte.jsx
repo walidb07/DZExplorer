@@ -16,6 +16,7 @@ function Carte() {
 
   return (
     <>
+    <div className='Carte'>
       <div id="map">
         <MapContainer center={position} zoom={11} scrollWheelZoom={true}>
           
@@ -31,6 +32,7 @@ function Carte() {
             </Popup>
           </Marker>
         </MapContainer>
+      </div>
       </div>
     </>
   );

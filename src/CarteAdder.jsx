@@ -44,7 +44,7 @@ function CarteAdder() {
           
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | &copy; <a href="https://carto.com/attributions">CARTO</a> | Innova'
             subdomains="abcd"
             maxZoom={20}
           />
@@ -55,7 +55,7 @@ function CarteAdder() {
         <p>Veuillez ajuster le cadre initial de la carte avant de l'ajouter.</p>
         <div className='CarteName'>
             <h3>Nom de la carte:</h3>
-              <input id='mapName' className='register-textbox' type='text' placeholder='Entrez le nom de la carte' />
+              <input id='mapName' className='carteadder-textbox' type='text' placeholder='Entrez le nom de la carte' />
         </div>
         <div className='CarteAdderButtonContainer'>
         {errorMessage && <p className='error-message'>{errorMessage}</p>}

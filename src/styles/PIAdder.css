@@ -1,0 +1,39 @@
+.PIcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.piMapBody .leaflet-container {
+    width: 500px;
+    height: 500px;
+    margin:auto;
+    margin-top: 20px;
+}
+
+.catetheme-container {
+    display: flex;
+    margin-top: 20px;
+    width: 810px;
+    justify-content: space-evenly;
+}
+
+.single-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+}
+
+.PIcontainer img {
+    width: 300px;
+}
+
+#transportIcon {
+    width: 100px;
+    margin-top: 20px;
+}
+
+#horairesIcon {
+    width: 100px;
+}

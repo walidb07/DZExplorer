@@ -10,6 +10,7 @@ import Tabs from './common/Tabs'
 import Admin from './Admin'
 import Carte from './Carte'
 import CarteAdder from './CarteAdder'
+import PIAdder from './PIAdder'
 
 import {
   BrowserRouter as Router,
@@ -30,7 +31,7 @@ const router=createBrowserRouter([
   },
   {
     path: "/test",
-    element: <Carte/>,
+    element: <PIAdder/>,
   },
   {
     path: "/register",

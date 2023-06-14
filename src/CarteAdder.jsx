@@ -1,5 +1,4 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
-import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './styles/CarteAdder.css';
 import React, { useState, useRef } from 'react';

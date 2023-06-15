@@ -60,6 +60,10 @@ const router=createBrowserRouter([
   {
     path: "/CarteAdder",
     element: <CarteAdder/>,
+  },
+  {
+    path: "/PIAdder",
+    element: <PIAdder/>,
   }
   ]);
 

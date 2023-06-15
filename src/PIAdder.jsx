@@ -7,8 +7,11 @@ import { Icon } from 'leaflet';
 
 
 const PIAdder = () => {
-  const mapRef = useRef(null);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
+  const mapRef = useRef(null);
+  
   const [draggable, setDraggable] = useState(true)
   const [position, setPosition] = useState([28, 2])
   const [zoom, setZoom] = useState(5)
@@ -109,17 +112,32 @@ const PIAdder = () => {
   };
 
   const handleFormSubmit = () => {
-    //axios.post('/api/endpoint', { 
-      //piName, desc, categorie, theme, position, zoom
-    //})
-      //.then(response => {
+    axios.post('http://127.0.0.1:8000/PI/', { 
+      Nom : piName,
+      description : desc,
+      longitude : position.lng,
+      latitude : position.lat,
+      jours : selectedDays,
+      heureOuverture : openingTime,
+      heureFermeture : closingTime,
+      rate : 0,
+      categorie : categorie,
+      theme : theme,
+      regionId : selectedRegion,
+      transports : selectedMts
+    })
+      .then(response => {
         // Handle success
+        setErrorMessage('');
+        setSuccessMessage('Point d\'intérêt ajouté avec succès');
         console.log({ piName, desc, categorie, theme, position, selectedDays, openingTime, closingTime, mtsData, selectedMts, selectedRegion });
-      //})
-      //.catch(error => {
+      })
+      .catch(error => {
         // Handle error
-       // console.error(error);
-      //});
+        setErrorMessage('Erreur lors de l\'ajout du point d\'intérêt');
+        setSuccessMessage('');
+        console.error(error);
+      });
   };
 
   return (
@@ -305,6 +323,8 @@ const PIAdder = () => {
               />
             </div>
           </div>
+          {errorMessage && <p className='error-message'>{errorMessage}</p>}
+          {successMessage && <p className='success-message'>{successMessage}</p>}
           <div className='thirdbuttonsContainer'>
           <button onClick={handlePreviousPage}>←</button>
           <button onClick={handleFormSubmit}>Ajouter point d'intérêt</button>

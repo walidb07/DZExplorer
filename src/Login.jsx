@@ -21,10 +21,8 @@ function Login() {
     const phoneNumber = null;
     const country = "null";
 
-    axios.request({
-      method: 'GET',
-      url: 'http://127.0.0.1:8000/Visiteur/',
-      data: { 
+    axios.get('http://127.0.0.1:8000/Visiteur/',
+      { 
         Nom : name,
         Premon : firstName,
         Pays : country,
@@ -32,7 +30,7 @@ function Login() {
         email : email,
         motDePasse : password
        }
-    })
+    )
         .then(response => {
         if (response.data === 'Unknown user') {
             setErrorMessage('Email inexistant');

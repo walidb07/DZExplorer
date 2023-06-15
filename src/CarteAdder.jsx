@@ -17,7 +17,7 @@ function CarteAdder() {
     } else {
         setErrorMessage('');
         axios.post('http://127.0.0.1:8000/Region/', {
-            Nom: carteName,
+            designation: carteName,
             xcoor: mapCenter.lat,
             ycoor: mapCenter.lng,
             zoom: zoom

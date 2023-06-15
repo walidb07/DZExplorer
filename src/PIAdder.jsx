@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo, useCallback  } from 'react';
+import React, { useState, useRef, useMemo, useEffect, useCallback  } from 'react';
 import axios from 'axios';
 import './styles/PIAdder.css'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
@@ -31,6 +31,16 @@ const PIAdder = () => {
     return mapRef.current.getZoom()
     };
 
+    const handleDayClick = (day) => {
+      setSelectedDays((prevSelectedDays) => {
+        if (prevSelectedDays.includes(day)) {
+          return prevSelectedDays.filter((selectedDay) => selectedDay !== day);
+        } else {
+          return [...prevSelectedDays, day];
+        }
+      });
+    };
+
   const customIcon = new Icon({
     iconUrl: "src/images/marker-icon.png",
     iconSize: [32, 32],
@@ -43,6 +53,51 @@ const PIAdder = () => {
   const [desc, setDesc] = useState('');
   const [categorie, setCategorie] = useState('');
   const [theme, setTheme] = useState('');
+  const [selectedDays, setSelectedDays] = useState([]);
+  const [openingTime, setOpeningTime] = useState('');
+  const [closingTime, setClosingTime] = useState('');
+  const [mtsData, setMtsData] = useState([]);
+  const [selectedMts, setSelectedMts] = useState([]);
+  const [regions, setRegions] = useState([]);
+  const [selectedRegion, setSelectedRegion] = useState('');
+
+  useEffect(() => {
+    // Fetch all MoyenTransport objects
+    fetchRegions();
+    axios.get('http://127.0.0.1:8000/MoyenTransport/')
+      .then(response => {
+        console.log(response.data)
+        setMtsData(response.data); // Store the fetched objects in the array
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+  const fetchRegions = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/Region/');
+      console.log(response.data)
+      setRegions(response.data);
+    } catch (error) {
+      console.error('Error fetching regions:', error);
+    }
+  };
+
+  const handleRegionChange = (e) => {
+    setSelectedRegion(e.target.value);
+  };
+
+  const handleMtClick = (mtId) => {
+    setSelectedMts(prevSelectedMts => {
+      if (prevSelectedMts.includes(mtId)) {
+        return prevSelectedMts.filter(id => id !== mtId);
+      } else {
+        return [...prevSelectedMts, mtId];
+      }
+    });
+  };
+  
   
 
   const handleNextPage = () => {
@@ -54,16 +109,12 @@ const PIAdder = () => {
   };
 
   const handleFormSubmit = () => {
-    // Store the collected data in constants or perform any other action
-    const firstNameConstant = firstName;
-    const lastNameConstant = lastName;
-    const emailConstant = email;
-
-    // Perform API request using Axios or any other library
-    //axios.post('/api/endpoint', { firstName, lastName, email })
+    //axios.post('/api/endpoint', { 
+      //piName, desc, categorie, theme, position, zoom
+    //})
       //.then(response => {
         // Handle success
-        console.log({ firstName, lastName, email });
+        console.log({ piName, desc, categorie, theme, position, selectedDays, openingTime, closingTime, mtsData, selectedMts, selectedRegion });
       //})
       //.catch(error => {
         // Handle error
@@ -90,6 +141,7 @@ const PIAdder = () => {
           <div className='single-container'>
             <h3>Description</h3>
             <input
+              id="descField"
               type="text"
               placeholder="Description du point d'intérêt"
               value={desc}
@@ -107,6 +159,7 @@ const PIAdder = () => {
                 />
             </div> 
             <div>
+              <div className='theme-container'>
                 <h3>Thème</h3>
                 <input
                     type="text"
@@ -114,7 +167,19 @@ const PIAdder = () => {
                     value={theme}
                     onChange={e => setTheme(e.target.value)}
                 />
+                </div>
             </div>
+          </div>
+          <div className='single-container'>
+            <h3>Région</h3>
+            <select value={selectedRegion} onChange={handleRegionChange}>
+              <option value="">Sélectionner une région</option>
+              {regions.map((region) => (
+                <option key={region.idRegion} value={region.idRegion}>
+                  {region.designation}
+                </option>
+              ))}
+            </select>
           </div>
           <div id="map" className='piMapBody'>
           <MapContainer center={position} zoom={zoom} scrollWheelZoom={true} ref={mapRef} eventHandlers={eventHandlers} 
@@ -129,7 +194,7 @@ const PIAdder = () => {
       eventHandlers={eventHandlers} ref={markerRef}></Marker>
           </MapContainer>
            </div>
-          <button onClick={handleNextPage}>Next</button>
+          <button onClick={handleNextPage}>→</button>
         </div>
       )}
 
@@ -142,8 +207,20 @@ const PIAdder = () => {
           <img id='transportIcon' src='src/images/PIAdder/transport.png'/>
           <h2>Transport</h2>
 
-          <button onClick={handlePreviousPage}>Previous</button>
-          <button onClick={handleNextPage}>Next</button>
+          <div className='mtContainer'>
+            {mtsData.map(mt => (
+              <div key={mt.idMoyenTransport} className={`moyenTransport ${selectedMts.includes(mt.idMoyenTransport) ? 'selected' : ''}`}
+              onClick={() => handleMtClick(mt.idMoyenTransport)}>
+                <div>{mt.type}</div> 
+                <div className='cap'>Capacité: {mt.NombrePassagers}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className='buttonsContainer'>
+            <button onClick={handlePreviousPage}>←</button>
+            <button onClick={handleNextPage}>→</button>
+          </div>
         </div>
       )}
 
@@ -156,13 +233,83 @@ const PIAdder = () => {
           <img id='horairesIcon' src='src/images/PIAdder/horaires.png'/>
           <h2>Horaires</h2>
         
-          <button onClick={handlePreviousPage}>Previous</button>
-          <input
-            type="text"
-            placeholder="Email"
           
-          />
-          <button onClick={handleFormSubmit}>Submit</button>
+          <div className='joursSemaine'>
+            <div
+              className={`jour ${selectedDays.includes('samedi') ? 'selected' : ''}`}
+              onClick={() => handleDayClick('samedi')}
+            >
+              Samedi
+            </div>
+
+            <div
+              className={`jour ${selectedDays.includes('dimanche') ? 'selected' : ''}`}
+              onClick={() => handleDayClick('dimanche')}
+            >
+              Dimanche
+            </div>
+
+            <div
+              className={`jour ${selectedDays.includes('lundi') ? 'selected' : ''}`}
+              onClick={() => handleDayClick('lundi')}
+            >
+              Lundi
+            </div>
+
+            <div
+              className={`jour ${selectedDays.includes('mardi') ? 'selected' : ''}`}
+              onClick={() => handleDayClick('mardi')}
+            >
+              Mardi
+            </div>
+
+            <div
+              className={`jour ${selectedDays.includes('mercredi') ? 'selected' : ''}`}
+              onClick={() => handleDayClick('mercredi')}
+            >
+              Mercredi
+            </div>
+
+            <div
+              className={`jour ${selectedDays.includes('jeudi') ? 'selected' : ''}`}
+              onClick={() => handleDayClick('jeudi')}
+            >
+              Jeudi
+            </div>
+
+            <div
+              className={`jour ${selectedDays.includes('vendredi') ? 'selected' : ''}`}
+              onClick={() => handleDayClick('vendredi')}
+            >
+              Vendredi
+            </div>
+          </div>
+
+          <div className='heuresContainer'>
+            <div>
+              <h3>Ouverture</h3>
+              <input
+              id="ouvertureField"
+              type="time"
+              value={openingTime}
+              onChange={e => setOpeningTime(e.target.value)}
+              />
+            </div>
+            <div>
+              <h3>Fermeture</h3>
+              <input
+              id="fermetureField"
+              type="time"
+              value={closingTime}
+              onChange={e => setClosingTime(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className='thirdbuttonsContainer'>
+          <button onClick={handlePreviousPage}>←</button>
+          <button onClick={handleFormSubmit}>Ajouter point d'intérêt</button>
+          </div>
+          
         </div>
       )}
     </div>

@@ -4,12 +4,53 @@ import { faBus } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react';
 
 function PointInteret() {
+
+
+    const images = [
+        'src/images/logo.svg',
+        'src/images/logo-bold.svg',
+        'src/images/PIAdder/step2.png',
+        // Add more image URLs here
+    ];
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const goToPreviousImage = () => {
+        setCurrentImageIndex(prevIndex => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+      };
+    
+      const goToNextImage = () => {
+        setCurrentImageIndex(prevIndex => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+      };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <>
             <div className="PIpageRoot">
-                <div className="gallery"></div>
+                <div className="gallery">
+                    <button onClick={goToPreviousImage}>&larr;</button>
+                    <div className="image-container">
+                        <img src={images[currentImageIndex]} alt="Gallery" />
+                    </div>
+                    <button onClick={goToNextImage}>&rarr;</button>
+                </div>
                 <div className="titreandrating">
                     <div className='titre'>Titre</div>
                     <div className='rating'>4.56 <FontAwesomeIcon icon={faStar} style={{color: "#000000",}} /></div>

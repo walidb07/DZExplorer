@@ -1,8 +1,10 @@
 import './styles/Login.css'
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function TextField() {
+  const navigate = useNavigate();
   const [text, setText] = useState('');
 
   const handleChange = (event) => {
@@ -11,6 +13,7 @@ function TextField() {
 }
 
 function Login() {
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = () => {
@@ -21,10 +24,10 @@ function Login() {
     const phoneNumber = null;
     const country = "null";
 
-    axios.get('http://127.0.0.1:8000/Visiteur/',
+    axios.post('http://127.0.0.1:8000/VisiteurLogin/',
       { 
         Nom : name,
-        Premon : firstName,
+        Prenom : firstName,
         Pays : country,
         NumTel : phoneNumber,
         email : email,
@@ -32,12 +35,15 @@ function Login() {
        }
     )
         .then(response => {
-        if (response.data === 'Unknown user') {
+        if (response.data === 'unknown user ,you should sign up first') {
             setErrorMessage('Email inexistant');
-        } else if (response.data === 'Wrong password') {
+        } else if (response.data === 'mot de passe erroné') {
             setErrorMessage('Mot de passe incorrect');
-        } else {
-            setErrorMessage('');
+        } else if (response.data === 'error'){
+            setErrorMessage('Erreur de connexion');
+        } else if (response.data === 'loging succesfully') {
+           setErrorMessage('');
+           navigate("/Carte");
         }
 
         }).catch(error => {

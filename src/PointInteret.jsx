@@ -13,9 +13,11 @@ function PointInteret() {
     const { id } = useParams();
     // PARTIE IMAGES
     const images = [
-        'src/images/logo.svg',
-        'src/images/logo-bold.svg',
-        'src/images/PIAdder/step2.png',
+        '../src/images/Blida_centre.jpg',
+        '../src/images/da24189d9590469f424f82ccbd90a3a8_M.jpg',
+        '../src/images/fort-santa-cruz.jpg',
+        '../src/images/img-20171020-132538-largejpg.jpg',
+        '../src/images/téléchargement.jpg',
         // Add more image URLs here
     ];
 

@@ -306,19 +306,20 @@ function Register() {
           <div className='grid-container-register'>
             <div className='grid-item'>
               <h3>Nom*</h3>
-              <input id='name' className='register-textbox' type='text' placeholder='Entrez votre nom' />
+              <input autoComplete="off"  id='name' className='register-textbox' type='text' placeholder='Entrez votre nom' />
             </div>
             <div className='grid-item'>
               <h3>Prénom*</h3>
-              <input id='firstName' className='register-textbox' type='text' placeholder='Entrez votre prénom' />
+              <input autoComplete="off"  id='firstName' className='register-textbox' type='text' placeholder='Entrez votre prénom' />
             </div>
             <div className='grid-item'>
               <h3>Email*</h3>
-              <input id='email' className='register-textbox' type='text' placeholder='Entrez votre email' />
+              <input autoComplete="off"  id='email' className='register-textbox' type='text' placeholder='Entrez votre email' />
             </div>
             <div className='grid-item'>
               <h3>Numéro de téléphone*</h3>
               <input
+                autoComplete="off" 
                 id='phoneNumber'
                 className='register-textbox'
                 type='text'
@@ -348,11 +349,12 @@ function Register() {
             <div className='grid-container-register-2'> 
             <div className='grid-item'>
               <h3>Mot de passe*</h3>
-              <input id='password' className='register-textbox' type='password' placeholder='Entrez votre mot de passe' />
+              <input autoComplete="off"  id='password' className='register-textbox' type='password' placeholder='Entrez votre mot de passe' />
             </div>
             <div className='grid-item'>
               <h3>Confirmer le mot de passe*</h3>
               <input
+                autoComplete="off" 
                 id='confirmPassword'
                 className='register-textbox'
                 type='password'

@@ -112,32 +112,37 @@ const PIAdder = () => {
   };
 
   const handleFormSubmit = () => {
-    axios.post('http://127.0.0.1:8000/PI/', { 
-      Nom : piName,
-      description : desc,
-      longitude : position.lng,
-      latitude : position.lat,
-      jours : selectedDays,
-      heureOuverture : openingTime,
-      heureFermeture : closingTime,
-      rate : 0,
-      categorie : categorie,
-      theme : theme,
-      regionId : selectedRegion,
-      transports : selectedMts
-    })
-      .then(response => {
-        // Handle success
-        setErrorMessage('');
-        setSuccessMessage('Point d\'intérêt ajouté avec succès');
-        console.log({ piName, desc, categorie, theme, position, selectedDays, openingTime, closingTime, mtsData, selectedMts, selectedRegion });
+    if (!(piName === '' | desc === '' | categorie === '' | theme === '' | selectedRegion === '' | openingTime === '' | closingTime === '' | selectedDays.length === 0 | selectedMts.length === 0)) {
+      axios.post('http://127.0.0.1:8000/PI/', { 
+        Nom : piName,
+        description : desc,
+        longitude : position.lng,
+        latitude : position.lat,
+        jours : selectedDays,
+        heureOuverture : openingTime,
+        heureFermeture : closingTime,
+        rate : 0,
+        categorie : categorie,
+        theme : theme,
+        regionId : selectedRegion,
+        transports : selectedMts
       })
-      .catch(error => {
-        // Handle error
-        setErrorMessage('Erreur lors de l\'ajout du point d\'intérêt');
+        .then(response => {
+          // Handle success
+          setErrorMessage('');
+          setSuccessMessage('Point d\'intérêt ajouté avec succès');
+          console.log({ piName, desc, categorie, theme, position, selectedDays, openingTime, closingTime, mtsData, selectedMts, selectedRegion });
+        })
+        .catch(error => {
+          // Handle error
+          setErrorMessage('Erreur lors de l\'ajout du point d\'intérêt');
+          setSuccessMessage('');
+          console.error(error);
+        });
+      } else {
+        setErrorMessage('Veuillez remplir tous les champs');
         setSuccessMessage('');
-        console.error(error);
-      });
+      }
   };
 
   return (
@@ -150,6 +155,7 @@ const PIAdder = () => {
           <div className='single-container'>
             <h3>Nom</h3>
             <input
+              autoComplete="off" 
               type="text"
               placeholder="Nom du point d'intérêt"
               value={piName}
@@ -159,6 +165,7 @@ const PIAdder = () => {
           <div className='single-container'>
             <h3>Description</h3>
             <input
+              autoComplete="off" 
               id="descField"
               type="text"
               placeholder="Description du point d'intérêt"
@@ -170,6 +177,7 @@ const PIAdder = () => {
             <div className='categorie-container'>
                 <h3>Catégorie</h3>
                 <input
+                    autoComplete="off" 
                     type="text"
                     placeholder="Catégorie"
                     value={categorie}
@@ -180,6 +188,7 @@ const PIAdder = () => {
               <div className='theme-container'>
                 <h3>Thème</h3>
                 <input
+                    autoComplete="off" 
                     type="text"
                     placeholder="Thème"
                     value={theme}
@@ -307,6 +316,7 @@ const PIAdder = () => {
             <div>
               <h3>Ouverture</h3>
               <input
+              autoComplete="off" 
               id="ouvertureField"
               type="time"
               value={openingTime}
@@ -316,6 +326,7 @@ const PIAdder = () => {
             <div>
               <h3>Fermeture</h3>
               <input
+              autoComplete="off" 
               id="fermetureField"
               type="time"
               value={closingTime}

@@ -1,7 +1,6 @@
-.Carte .leaflet-container {
+.carteRoot .leaflet-container {
     width: 1000px;
-    height: 700px;
-    border-radius: 15px;
+    height: 100vh;
   }
 
 .leaflet-popup-content-wrapper {
@@ -14,4 +13,23 @@
     background-repeat: no-repeat; /* Prevent background from repeating */
     background-attachment: fixed; /* Fix the background position */
     background-size: cover; /* Adjust background size */
+}
+
+.carteRoot {
+    display: flex;
+    font-style: Poppins;
+}
+
+.regionDropdownContainer{
+    margin-top: 100px;
+    margin-left: 50px;
+    font-style: Poppins;
+}
+
+.regionDropdownContainer select {
+    width: 400px;
+    height: 50px;
+    font-size: 15pt;
+    border-radius: 15px;
+    padding-left: 10px;
 }

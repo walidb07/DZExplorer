@@ -4,6 +4,7 @@ import { faBus } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -103,7 +104,42 @@ function PointInteret() {
           });
       };
       
+      //POPUPS
+      const [showTransportPopup, setShowTransportPopup] = useState(false);
+      const [showHorairesPopup, setShowHorairesPopup] = useState(false);
 
+      const handleTransportButtonClick = () => {
+        setShowTransportPopup(true);
+      };
+
+      const handleHorairesButtonClick = () => {
+        setShowHorairesPopup(true);
+      };
+
+    //TRANSPORTS
+    const [transportMeans, setTransportMeans] = useState([]);
+    
+
+    useEffect(() => {
+      const fetchTransportMeans = async () => {
+        try {
+          const response = await axios.get('http://127.0.0.1:8000/MoyenTransport/');
+          const allTransportMeans = response.data;
+  
+          // Filter transportation means based on point.transports array
+          const filteredTransportMeans = allTransportMeans.filter(mt =>
+            point.transports.includes(mt.idMoyenTransport)
+          );
+  
+          setTransportMeans(filteredTransportMeans);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+  
+      fetchTransportMeans();
+    }, [point.transports]);
+    
 
 
     return (
@@ -129,8 +165,8 @@ function PointInteret() {
                     <h3>Description</h3>
                     <p>{point.description}</p>
                 </div>
-                <button className='thButton'><FontAwesomeIcon icon={faBus} style={{color: "#ffffff",}} /> Transport</button>
-                <button className='thButton'><FontAwesomeIcon icon={faClock} style={{color: "#ffffff",}} /> Horaires</button>
+                <button className='thButton' onClick={handleTransportButtonClick}><FontAwesomeIcon icon={faBus} style={{color: "#ffffff",}}  /> Transport</button>
+                <button className='thButton'onClick={handleHorairesButtonClick}><FontAwesomeIcon icon={faClock} style={{color: "#ffffff",}} /> Horaires</button>
                 <div className="commentaires">
                     <div className='commentaireSectionTitre'>N commentaires</div>
                     <div className='posterCommentaire'>
@@ -202,6 +238,79 @@ function PointInteret() {
                     <div className='listeCommentaires'></div>
                 </div>
             </div>
+            {/* Transport Popup */}
+              {showTransportPopup && (
+                <div className="popupContainer">
+                  <div className="popup">
+                    <div className="popupHeader">
+                      <h2>Transport</h2>
+                      <button className="closeButton" onClick={() => setShowTransportPopup(false)}>
+                        <FontAwesomeIcon icon={faTimes} />
+                      </button>
+                    </div>
+                    <div className="popupContent">
+                      <div className='transportsContainer'>
+                        <img id='transportIcon' src='../src/images/PIAdder/transport.png'/>
+                          <div className="mtContainer">
+                            {transportMeans.map(mt => (
+                              <div
+                                key={mt.idMoyenTransport}
+                                className={`moyenTransport ${transportMeans.includes(mt.idMoyenTransport) ? 'selected' : ''}`}
+                              >
+                                <div>{mt.type}</div>
+                                <div className="cap">Capacité: {mt.NombrePassagers}</div>
+                              </div>
+                            ))}
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Horaires Popup */}
+                {showHorairesPopup && (
+                  <div className="popupContainer">
+                    <div className="popup">
+                      <div className="popupHeader">
+                        <h2>Horaires</h2>
+                        <button className="closeButton" onClick={() => setShowHorairesPopup(false)}>
+                          <FontAwesomeIcon icon={faTimes} />
+                        </button>
+                      </div>
+                      <div className="popupContent">
+                        <div className='horairesContainer'>
+      
+                          <img src='../src/images/PIAdder/horaires.png'/>
+
+                          <h2>Jours de la semaine</h2>
+
+                          <div className='joursSemaine'>
+                          <div className={`jourPI ${point.jours.includes('samedi') ? 'jourPI-available' : ''}`}>Samedi</div>
+                          <div className={`jourPI ${point.jours.includes('dimanche') ? 'jourPI-available' : ''}`}>Dimanche</div>
+                          <div className={`jourPI ${point.jours.includes('lundi') ? 'jourPI-available' : ''}`}>Lundi</div>
+                          <div className={`jourPI ${point.jours.includes('mardi') ? 'jourPI-available' : ''}`}>Mardi</div>
+                          <div className={`jourPI ${point.jours.includes('mercredi') ? 'jourPI-available' : ''}`}>Mercredi</div>
+                          <div className={`jourPI ${point.jours.includes('jeudi') ? 'jourPI-available' : ''}`}>Jeudi</div>
+                          <div className={`jourPI ${point.jours.includes('vendredi') ? 'jourPI-available' : ''}`}>Vendredi</div>
+                          </div>
+
+                          <div className='heuresContainer'>
+                            <div>
+                              <h3>Ouverture</h3>
+                              <p>{point.heureOuverture.slice(0, 5)}</p>
+                            </div>
+                            <div>
+                              <h3>Fermeture</h3>
+                              <p>{point.heureFermeture.slice(0, 5)}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
         </>
     )
 }

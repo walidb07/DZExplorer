@@ -340,7 +340,6 @@ const PIAdder = () => {
           <button onClick={handlePreviousPage}>←</button>
           <button onClick={handleFormSubmit}>Ajouter point d'intérêt</button>
           </div>
-          
         </div>
       )}
     </div>

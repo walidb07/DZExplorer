@@ -144,3 +144,101 @@
     cursor: pointer;
   }
   
+  /* PointInteret.css */
+
+.popupContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 600px;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popupHeader h2 {
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #999999;
+}
+
+.closeButton:hover {
+  color: #333333;
+}
+
+.jourPI {
+  background-color: #FAFAFA;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    margin-left: 10px;
+    text-align: center;
+    padding-top: 12px;
+    border: solid 2px red;
+}
+
+.horairesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transportsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jourPI-available {
+  background-color: #FAFAFA;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    margin-left: 10px;
+    text-align: center;
+    padding-top: 12px;
+    border: solid 2px #19F679;
+}
+
+.horairesContainer img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.transportsContainer img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.popupHeader button {
+  position: relative;
+  left: 215px;
+}

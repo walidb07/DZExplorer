@@ -6,6 +6,7 @@ import axios from 'axios';
 
 function CarteAdder() {
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const position = [28, 2];
 
   const handleAddCarte = () => {
@@ -22,6 +23,14 @@ function CarteAdder() {
             ycoor: mapCenter.lng,
             zoom: zoom
         })
+          .then(response => {
+            setErrorMessage('');
+            setSuccessMessage('Carte créée avec succès');
+          })
+          .catch(error => {
+            setErrorMessage('Erreur lors de la création de la carte');
+            setSuccessMessage('');
+          });
     }
   };
   const mapRef = useRef(null) 
@@ -58,6 +67,7 @@ function CarteAdder() {
         </div>
         <div className='CarteAdderButtonContainer'>
         {errorMessage && <p className='error-message'>{errorMessage}</p>}
+        {successMessage && <p className='success-message'>{successMessage}</p>}
         <button className='CarteAdderButton' onClick={handleAddCarte}>
             Ajouter la carte
           </button>

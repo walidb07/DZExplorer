@@ -4,6 +4,9 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './styles/Carte.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 function Carte() {
   const mapRef = useRef(null);
@@ -15,8 +18,8 @@ function Carte() {
     popupAnchor: [0, -40],
   });
 
-  const defaultPosition = [36.75, 3.08];
-  const defaultZoom = 11;
+  const defaultPosition = [28, 2];
+  const defaultZoom = 5;
 
   const [regions, setRegions] = useState([]);
   const [mapPosition, setMapPosition] = useState(defaultPosition);
@@ -47,13 +50,14 @@ function Carte() {
 
   const fetchPiData = async (regionId) => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/PI/${regionId}`);
-      setPiData(response.data);
+      const response = await axios.get(`http://127.0.0.1:8000/PI/`);
+      const filteredPiData = response.data.filter((pi) => pi.regionId === regionId);
+      setPiData(filteredPiData);
     } catch (error) {
       console.error('Error fetching PI data:', error);
     }
   };
-
+  
   const handleRegionChange = (event) => {
     const regionId = parseInt(event.target.value, 10);
     const region = regions.find((region) => region.idRegion === regionId);
@@ -75,8 +79,12 @@ function Carte() {
               <Marker key={pi.idPoint} position={[pi.latitude, pi.longitude]} icon={customIcon}>
                 <Popup>
                   <div>
-                    <h4>{pi.Nom}</h4>
-                    <p>Rate: {pi.rate}</p>
+                    <h4>
+                      <Link to={`/Lieu/${pi.idPoint}`}>{pi.Nom}</Link>
+                    </h4>
+                    <p>
+                      <FontAwesomeIcon icon={faStar} style={{ color: "#000000" }} /> {pi.rate}
+                    </p>
                   </div>
                 </Popup>
               </Marker>

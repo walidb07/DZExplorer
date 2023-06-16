@@ -4,11 +4,13 @@ import { faBus } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 function PointInteret() {
-
-
+    const { id } = useParams();
+    // PARTIE IMAGES
     const images = [
         'src/images/logo.svg',
         'src/images/logo-bold.svg',
@@ -27,12 +29,6 @@ function PointInteret() {
       };
 
 
-
-
-
-
-
-
     // PARTIE COMMENTAIRES
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState(1);
@@ -45,14 +41,68 @@ function PointInteret() {
     setRating(Number(e.target.value));
     };
 
-    const handleSubmit = () => {
-    console.log('Comment:', comment);
-    console.log('Rating:', rating);
-    };
+    
+        
 
 
+    // PARTIE PI
+    const [point, setPoint] = useState('');
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(`http://127.0.0.1:8000/PI/${id}/`);
+            setPoint(response.data);
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        };
+    
+        fetchData();
+      }, [id]);
 
-
+      const handleSubmit = () => {
+        axios.get(`http://127.0.0.1:8000/PI/${id}/`)
+          .then((response) => {
+            const point = response.data;
+            console.log(point);
+      
+            let updatedRate;
+            if (point.rate === 0) {
+              updatedRate = rating;
+            } else {
+              updatedRate = (point.rate + rating) / 2;
+            }
+      
+            point.rate = updatedRate;
+      
+            axios.put(`http://127.0.0.1:8000/PI/${id}/`, point)
+              .then(() => {
+                // Handle successful rating update if needed
+              })
+              .catch((error) => {
+                // Handle error if needed
+              });
+          })
+          .catch((error) => {
+            // Handle error if needed
+          });
+      
+        const commentObject = {
+          Contenu: comment,
+          visiteurId: 1,
+          PiId: id,
+        };
+      
+        axios.post(`http://127.0.0.1:8000/Commentaire/`, commentObject)
+          .then(() => {
+            // Handle successful comment posting if needed
+            window.location.reload(); // Refresh the page
+          })
+          .catch((error) => {
+            // Handle error if needed
+          });
+      };
+      
 
 
 
@@ -67,17 +117,17 @@ function PointInteret() {
                     <button onClick={goToNextImage}>&rarr;</button>
                 </div>
                 <div className="titreandrating">
-                    <div className='titre'>Titre</div>
-                    <div className='rating'>4.56 <FontAwesomeIcon icon={faStar} style={{color: "#000000",}} /></div>
+                    <div className='titre'>{point.Nom}</div>
+                    <div className='rating'>{point.rate} <FontAwesomeIcon icon={faStar} style={{color: "#000000",}} /></div>
                 </div>
                 <div className="carteName"><FontAwesomeIcon icon={faLocationDot} style={{color: "#000000",}} /> Lieu</div>
                 <div className="tags">
-                    <div className='tagBox'>Catégorie: </div>
-                    <div className='tagBox'>Thème: </div>
+                    <div className='tagBox'>Catégorie: {point.categorie}</div>
+                    <div className='tagBox'>Thème: {point.theme}</div>
                 </div>
                 <div className="description">
                     <h3>Description</h3>
-                    <p>La description du point d'intéret</p>
+                    <p>{point.description}</p>
                 </div>
                 <button className='thButton'><FontAwesomeIcon icon={faBus} style={{color: "#ffffff",}} /> Transport</button>
                 <button className='thButton'><FontAwesomeIcon icon={faClock} style={{color: "#ffffff",}} /> Horaires</button>

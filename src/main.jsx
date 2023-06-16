@@ -69,6 +69,10 @@ const router=createBrowserRouter([
   {
     path: "/Carte",
     element: <Carte/>,
+  },
+  {
+    path: "/Lieu/:id",
+    element: <PointInteret/>,
   }
   ]);
 

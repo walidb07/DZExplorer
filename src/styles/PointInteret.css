@@ -1,0 +1,28 @@
+.PIpageRoot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Poppins;
+}
+
+.thButton {
+    background-color: black;
+    color:white;
+    width: 150px;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    margin-right: 350px;
+}
+
+.description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.description p {
+    width: 500px;
+    height: 100%;
+    word-wrap: break-word; 
+}
+.description h3 {
+    color: #31E981;
+}

@@ -145,6 +145,7 @@ const PIAdder = () => {
       }
   };
 
+
   return (
     <div>
       {page === 1 && (
@@ -208,6 +209,7 @@ const PIAdder = () => {
               ))}
             </select>
           </div>
+          <button onClick='#'>Ajouter des images</button>
           <div id="map" className='piMapBody'>
           <MapContainer center={position} zoom={zoom} scrollWheelZoom={true} ref={mapRef} eventHandlers={eventHandlers} 
             whenCreated={(mapInstance) => (mapRef.current = mapInstance)} whenReady={() => {}}>

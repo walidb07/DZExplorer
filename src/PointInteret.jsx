@@ -42,7 +42,17 @@ function PointInteret() {
     setRating(Number(e.target.value));
     };
 
-    
+    const [commentsPoint, setCommentsPoint] = useState([]);
+    useEffect(() => {
+      axios.get(`http://127.0.0.1:8000/Commentaire/${id}/`)
+        .then(response => {
+          setCommentsPoint(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching comments:', error);
+        });
+    }, [id]);
+
         
 
 
@@ -140,8 +150,7 @@ function PointInteret() {
       fetchTransportMeans();
     }, [point.transports]);
     
-
-
+  
     return (
         <>
             <div className="PIpageRoot">
@@ -154,7 +163,13 @@ function PointInteret() {
                 </div>
                 <div className="titreandrating">
                     <div className='titre'>{point.Nom}</div>
-                    <div className='rating'>{point.rate} <FontAwesomeIcon icon={faStar} style={{color: "#000000",}} /></div>
+                    <div className='rating'>{point && point.rate !== undefined ? (
+                      Number.isInteger(point.rate) ? (
+                        point.rate
+                      ) : (
+                        point.rate.toFixed(2).replace(/\.?0+$/, '')
+                      )
+                    ) : ''} <FontAwesomeIcon icon={faStar} style={{color: "#000000",}} /></div>
                 </div>
                 <div className="carteName"><FontAwesomeIcon icon={faLocationDot} style={{color: "#000000",}} /> Lieu</div>
                 <div className="tags">
@@ -235,9 +250,22 @@ function PointInteret() {
                             </div>
                         </div>
                     </div>
-                    <div className='listeCommentaires'></div>
+                    <div className="listeCommentaires">
+                      {commentsPoint.map(comment => (
+                        <div className="singleCommentaire" key={comment.idCommentaire}>
+                          <div className="commentaireContenu">{comment.Contenu}</div>
+                        </div>
+                      )).reverse()}
+                    </div>
                 </div>
             </div>
+
+
+
+
+
+
+
             {/* Transport Popup */}
               {showTransportPopup && (
                 <div className="popupContainer">

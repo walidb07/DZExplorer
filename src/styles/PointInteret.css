@@ -242,3 +242,23 @@
   position: relative;
   left: 215px;
 }
+
+.listeCommentaires {
+
+  margin-top: 20px;
+  border-top: solid 2px black;
+}
+
+.singleCommentaire {
+  margin: 10px;
+  height: 100%;
+  word-wrap: break-word; 
+  padding: 5px;
+  border-bottom: solid 1px black;
+}
+
+.commentaireContenu {
+  padding-top: 5px;
+  padding-left: 2px;
+  margin-bottom: 50px;
+}

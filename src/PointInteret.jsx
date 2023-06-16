@@ -33,7 +33,22 @@ function PointInteret() {
 
 
 
+    // PARTIE COMMENTAIRES
+    const [comment, setComment] = useState('');
+    const [rating, setRating] = useState(1);
 
+    const handleCommentChange = (e) => {
+    setComment(e.target.value);
+    };
+
+    const handleRatingChange = (e) => {
+    setRating(Number(e.target.value));
+    };
+
+    const handleSubmit = () => {
+    console.log('Comment:', comment);
+    console.log('Rating:', rating);
+    };
 
 
 
@@ -66,7 +81,76 @@ function PointInteret() {
                 </div>
                 <button className='thButton'><FontAwesomeIcon icon={faBus} style={{color: "#ffffff",}} /> Transport</button>
                 <button className='thButton'><FontAwesomeIcon icon={faClock} style={{color: "#ffffff",}} /> Horaires</button>
-                <div className="commentaires"></div>
+                <div className="commentaires">
+                    <div className='commentaireSectionTitre'>N commentaires</div>
+                    <div className='posterCommentaire'>
+                        <div className='photoProfilUtilisateur'>
+                            {/* User profile picture */}
+                        </div>
+                        <div className='sectionCommentaire'>
+                            <div className='sectionNote'>
+                            <div>Note: </div>
+                            <input
+                                type='radio'
+                                id='note1'
+                                name='rating'
+                                value='1'
+                                checked={rating === 1}
+                                onChange={handleRatingChange}
+                            />
+                            <label htmlFor='note1'>1</label>
+                            <input
+                                type='radio'
+                                id='note2'
+                                name='rating'
+                                value='2'
+                                checked={rating === 2}
+                                onChange={handleRatingChange}
+                            />
+                            <label htmlFor='note2'>2</label>
+                            <input
+                                type='radio'
+                                id='note3'
+                                name='rating'
+                                value='3'
+                                checked={rating === 3}
+                                onChange={handleRatingChange}
+                            />
+                            <label htmlFor='note3'>3</label>
+                            <input
+                                type='radio'
+                                id='note4'
+                                name='rating'
+                                value='4'
+                                checked={rating === 4}
+                                onChange={handleRatingChange}
+                            />
+                            <label htmlFor='note4'>4</label>
+                            <input
+                                type='radio'
+                                id='note5'
+                                name='rating'
+                                value='5'
+                                checked={rating === 5}
+                                onChange={handleRatingChange}
+                            />
+                            <label htmlFor='note5'>5</label>
+                            </div>
+                            <div className='sectionCommentaireTexte'>
+                            <input
+                                type='text'
+                                placeholder='Ajouter un commentaire...'
+                                value={comment}
+                                onChange={handleCommentChange}
+                            />
+                            </div>
+                            <div className='sectionBoutonPublier'>
+                            <button onClick={handleSubmit}>Publier</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='listeCommentaires'></div>
+                </div>
             </div>
         </>
     )

@@ -90,6 +90,57 @@
     display: block;
     margin: 0 auto;
   }
-  
 
+.commentaires{
+    margin-top: 40px;
+}
+.commentaireSectionTitre {
+    border-bottom: 1px solid black;
+    padding-left: 5px;
+    margin-left: 10px;
+}
+
+/* CommentForm.css */
+.posterCommentaire {
+     margin-top: 20px;
+  }
+  
+  .sectionNote {
+    display: flex;
+  }
+  
+  .sectionCommentaireTexte {
+    margin-top: 2px;
+  }
+  
+  .sectionBoutonPublier {
+    margin-top: 10px;
+  }
+  
+  .sectionNote label {
+    margin-right: 10px;
+    margin-left: 5px;
+  }
+  
+.sectionNote input[type='radio'] {
+      margin-left: 5px;
+    }
+
+  .sectionCommentaireTexte input[type='text'] {
+    width: 100%;
+    padding-left: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 100px;
+    padding-bottom: 65px;
+  }
+  
+  .sectionBoutonPublier button {
+    background-color: #31E981;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   

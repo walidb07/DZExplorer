@@ -21,6 +21,7 @@ import {
   RouterProvider
 } from 'react-router-dom';
 import Dashboard from './common/Dashboard'
+import MainPage from './common/MainPage'
 
 
 
@@ -31,7 +32,7 @@ const router=createBrowserRouter([
   },
   {
     path: "/test",
-    element: <PIAdder/>,
+    element: <MainPage/>,
   },
   {
     path: "/register",

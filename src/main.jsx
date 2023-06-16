@@ -8,6 +8,9 @@ import About from './About'
 import Contact from './Contact'
 import Tabs from './common/Tabs'
 import Admin from './Admin'
+import Carte from './Carte'
+import CarteAdder from './CarteAdder'
+import PIAdder from './PIAdder'
 
 import {
   BrowserRouter as Router,
@@ -28,7 +31,7 @@ const router=createBrowserRouter([
   },
   {
     path: "/test",
-    element: <Dashboard/>,
+    element: <PIAdder/>,
   },
   {
     path: "/register",
@@ -53,6 +56,14 @@ const router=createBrowserRouter([
   {
     path: "/admin",
     element: <Admin/>,
+  },
+  {
+    path: "/CarteAdder",
+    element: <CarteAdder/>,
+  },
+  {
+    path: "/PIAdder",
+    element: <PIAdder/>,
   }
   ]);
 

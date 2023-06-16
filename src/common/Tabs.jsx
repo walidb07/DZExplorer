@@ -7,6 +7,7 @@ function Tabs() {
 
     return(
         <>
+        <div className='bodyTabs'>
         <div className="welcome-section">
             <div className="left-section">
                 <div className="logo">
@@ -20,6 +21,7 @@ function Tabs() {
                 </div>
                 <Calendar />
             </div>
+        </div>
         </div>
         </>
     )

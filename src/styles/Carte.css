@@ -1,0 +1,17 @@
+.Carte .leaflet-container {
+    width: 1000px;
+    height: 700px;
+    border-radius: 15px;
+  }
+
+.leaflet-popup-content-wrapper {
+    font-family: Poppins;
+    width: 200px;
+}
+
+.leaflet-popup-tip {
+    background: white;
+    background-repeat: no-repeat; /* Prevent background from repeating */
+    background-attachment: fixed; /* Fix the background position */
+    background-size: cover; /* Adjust background size */
+}

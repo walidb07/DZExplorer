@@ -5,6 +5,7 @@ import HeadDash from "./HeadDash.jsx"
 import Recommendations from "./Recommendations.jsx"
 import './Dashboard.css'
 import Carte from '../Carte';
+import Actualities from './Actualities';
 
 
 function  Dashboard() {
@@ -38,7 +39,7 @@ function  DashboardNews() {
         <HeadDash />
         </div>
           <div className="recommend-news">
-          <Recommendations />
+          <Actualities />
         </div>
     </div>
   )
@@ -58,8 +59,6 @@ function Tabs() {
         return <DashboardCarte />;
       case 'Actualités':
         return <DashboardNews />;
-      case 'Se déconnecter':
-        return <>HANDLE SE DECONNECTER</>;
       default:
         return <Dashboard />;
     }

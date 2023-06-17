@@ -37,9 +37,13 @@ function AdminDash() {
           <button  className={isButtonActive('ajouterCarte') ? 'active' : ''} onClick={() => renderComponent('ajouterCarte')}>Ajouter une carte</button>
           <button className={isButtonActive('ajouterPointInteret') ? 'active' : ''} onClick={() => renderComponent('ajouterPointInteret')}>Ajouter un point d'intérêt</button>
         </div>
-        <div className="adminComponent">
-          {renderActiveComponent()}
-        </div>
+        {activeComponent && (
+          <div className="adminComponentContainer">
+            <div className="adminComponent">
+              {renderActiveComponent()}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

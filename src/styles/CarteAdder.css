@@ -1,5 +1,7 @@
 .CarteAdderBody{
     display: flex;
+    align-items: center;
+    padding: 50px;
 }
 
 .CarteAdderInfos{
@@ -12,8 +14,8 @@
 }
 
 .CarteAdderBody .leaflet-container {
-    width: 1000px;
-    height: 100vh;
+    width: 600px;
+    height: 600px;
 }
 
 .CarteName{

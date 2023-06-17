@@ -12,7 +12,7 @@
     background-color: #E9F0FF;
     width: 300px;
     height: 100%;
-    padding: 10px;
+    padding: 50px;
     border-radius: 10px;
     font-family: Poppins;
   }
@@ -35,6 +35,11 @@
   .adminComponent {
     flex: 1;
     font-family: Poppins;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
   }
 
   .adminButtons button.active {
@@ -47,3 +52,11 @@
     font-size: 15pt;
     font-family: Poppins;
   }
+
+  .adminComponentContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

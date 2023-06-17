@@ -14,5 +14,5 @@ How to install database and run backend server:
   5) Open CMD in subfolder DZExplorer/DZExplorer_Backend.
   6) Run command` python manage.py makemigrations`.
   7) Run command `python manage.py migrate`.
-  8) Create superuser to access Django admin panel using command `python manage.py createsuperuser`.
-  9) Run backend server by using command `python manage.py runserver`. 
+  8) Create a superuser to access Django admin panel using command `python manage.py createsuperuser`.
+  9) Run backend server using command `python manage.py runserver`. 

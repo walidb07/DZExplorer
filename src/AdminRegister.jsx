@@ -20,20 +20,21 @@ function AdminRegister() {
     if (nom === '' || prenom === '' || email === '' || password === '' || numTel === '') {
       setErrorMessage('Veuillez remplir tous les champs.');
     } else {
+      console.log(nom,prenom,email,password,numTel);
       axios
-        .post('http://127.0.0.1:8000/Admin/', {
-          nom: nom,
-          prenom: prenom,
+        .post('http://127.0.0.1:8000/createAdmin/', {
+          Nom: nom,
+          Prenom: prenom,
           email: email,
           motDePasse: password,
-          numTel: numTel,
+          NumTel: numTel,
           regionId: regionId,
         })
         .then(response => {
-          if (response.data === 'loging succesfully') {
+          if (response.data === 'creating admin succesfully') {
             setErrorMessage('');
-            navigate('/AdminDashboard');
-          } else {
+            navigate('/AdminDash');
+          } else if (response.data === 'error') {
             setErrorMessage("Une erreur s'est produite lors de l'enregistrement de l'administrateur.");
           }
         })

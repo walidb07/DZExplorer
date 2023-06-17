@@ -151,18 +151,37 @@ function PointInteret() {
   
       fetchTransportMeans();
     }, [point.transports]);
+
+    //GET POINT REGION
+    const [region, setRegion] = useState('');
+    useEffect(() => {
+      const fetchRegion = async () => {
+        try {
+          const response = await axios.get(`http://127.0.0.1:8000/Region/${point.idRegion}/`);
+          setRegion(response.data);
+        } catch (error) {
+          console.error('Error fetching region:', error);
+        }
+      };
     
+      if (point && point.idRegion) {
+        fetchRegion();
+        console.log("region:",region);
+      }
+    }, [point]);
   
     return (
         <>
             <div className="PIpageRoot">
-                <div className="gallery">
-                    <button onClick={goToPreviousImage}>&larr;</button>
-                    <div className="image-container">
-                        <img src={images[currentImageIndex]} alt="Gallery" />
-                    </div>
-                    <button onClick={goToNextImage}>&rarr;</button>
+            {!(images.length === 0) && (
+              <div className="gallery">
+                <button onClick={goToPreviousImage}>&larr;</button>
+                <div className="image-container">
+                  <img src={images[currentImageIndex]} alt="Gallery" />
                 </div>
+                <button onClick={goToNextImage}>&rarr;</button>
+              </div>
+            )}
                 <div className="titreandrating">
                     <div className='titre'>{point.Nom}</div>
                     <div className='rating'>{point && point.rate !== undefined ? (
@@ -173,7 +192,7 @@ function PointInteret() {
                       )
                     ) : ''} <FontAwesomeIcon icon={faStar} style={{color: "#000000",}} /></div>
                 </div>
-                <div className="carteName"><FontAwesomeIcon icon={faLocationDot} style={{color: "#000000",}} /> Lieu</div>
+                <div className="carteName"><FontAwesomeIcon icon={faLocationDot} style={{color: "#000000",}} /> {region.designation}</div>
                 <div className="tags">
                     <div className='tagBox'>Catégorie: {point.categorie}</div>
                     <div className='tagBox'>Thème: {point.theme}</div>

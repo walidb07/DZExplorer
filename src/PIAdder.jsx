@@ -132,19 +132,13 @@ const PIAdder = () => {
         images : uploadedImages
       })
         .then(response => {
-          //Uploader les images du PI créé
 
-
-
-
-
-          // Handle success
           if (response.data === 'error ,make sure you have supply all the required fields ') {
             setErrorMessage('Erreur lors de l\'ajout du point d\'intérêt');
             setSuccessMessage('');
-          } else if (response.data === 'creating PI Successfully') {
-            setErrorMessage('');
-            setSuccessMessage('Point d\'intérêt ajouté avec succès');
+          } else if (response.data[0] === 'creating PI Successfully') {
+            //Uploader les images du PI créé
+            sendImages(response.data[1],uploadedImages)
           console.log({ piName, desc, categorie, theme, position, selectedDays, openingTime, closingTime, mtsData, selectedMts, selectedRegion, uploadedImages });
           }
         })
@@ -166,24 +160,38 @@ const PIAdder = () => {
 
   const handleImageUpload = (event) => {
     const files = event.target.files;
-    const imagesArray = [];
-  
-    for (let i = 0; i < files.length; i++) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        imagesArray.push(e.target.result);
-        if (imagesArray.length === files.length) {
-          setUploadedImages(imagesArray);
-          console.log('Uploaded Images:', imagesArray);
-        }
-      };
-      reader.readAsDataURL(files[i]);
-    }
+    const imagesArray = Array.from(files);
+    setUploadedImages(imagesArray);
+    console.log('Uploaded Images:', imagesArray);
   };
   
   const clearUploadedImages = () => {
     setUploadedImages([]);
   };
+
+  const sendImages = (id,images) => 
+        {
+          let formData=new FormData();
+          for (var i=0;i<images.length;i++)
+          { console.log('image name: ', images[i].name);
+            formData.append('image', images[i],images[i].name);
+            formData.append('id', null);
+            formData.append('piId',id);
+                let url = 'http://localhost:8000/PiImage/';
+                axios.post(url, formData, {
+                  headers: {
+                    'content-type': 'multipart/form-data'
+                  }
+                }).then(res => {
+                      console.log(res.data);
+                      setErrorMessage('');
+                      setSuccessMessage('Point d\'intérêt ajouté avec succès');
+                    })
+                    .catch(err => console.log(err))
+
+                  }
+
+        }
 
 
 
@@ -277,11 +285,11 @@ const PIAdder = () => {
               {uploadedImages.length > 0 && (
                 <div className="image-thumbnails">
                   {uploadedImages.map((image, index) => (
-                    <img key={index} src={image} alt={`Thumbnail ${index}`} className="thumbnail" />
+                    <img key={index} src={URL.createObjectURL(image)} alt={`Thumbnail ${index+1}`} className="thumbnail" />
                   ))}
                 </div>
               )}
-              {uploadedImages.length > 0 && <p>{uploadedImages.length} image(s) à ajouter</p>}
+              {uploadedImages.length > 0 && <p id="nbImages">{uploadedImages.length} image(s) à ajouter</p>}
             </div>
             <div className='PImapandbutton'>
               <div id="map" className='piMapBody'>

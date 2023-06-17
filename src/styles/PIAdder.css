@@ -129,6 +129,7 @@
 .heuresContainer {
     display: flex;
     margin-top: -30px;
+    margin-bottom: 30px;
 }
 
 .heuresContainer * {
@@ -185,6 +186,8 @@
   .image-thumbnails{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 50px;
   }
 
   .thumbnail {
@@ -197,10 +200,15 @@
 
   .filesButton {
     display: flex;
+    margin-left: 100px;
   }
 
 
 #deleteButton {
     background-color: #CCCCCC;
     margin-left: 10px;
+}
+
+#nbImages {
+    margin-left: 150px;
 }

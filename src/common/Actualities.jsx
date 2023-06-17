@@ -1,7 +1,7 @@
 import React from 'react';
 import './Actualities.css';
 
-export default function Actualities() {
+export default function Actualities({ onActualityClick }) {
   const actualities = [
     {
       location: 'Tlemcen',
@@ -36,36 +36,41 @@ export default function Actualities() {
     // Add more actualities here
   ];
 
-  const maxDisplayedItems = 5; // Maximum number of actualities to display
-  const displayActualities = actualities.slice(0, maxDisplayedItems); // Slice the actualities array based on the limit
+  const maxDisplayedItems = 5;
+  const displayActualities = actualities.slice(0, maxDisplayedItems);
+
+  const handleButtonClick = (actuality) => {
+    onActualityClick(actuality);
+  };
 
   return (
     <>
-          <span className="relative">
+      <span className="relative">
         <span className="ml-10 -mt-5 font-poppins font-bold text-xl">Actualités</span>
         <span className="absolute bottom-0 right-1/2 w-1/5 border-b border-green-500 border-xl"></span>
       </span>
-    <div className="actualities-container">
-
-      <div className="underline"></div>
-
-      <div className="actualities-list">
-        {displayActualities.map((actuality, index) => (
-          <div className="one-actuality" key={index}>
-            <div className="one-actuality-info">
-              <div>
-                <span className="oa-location">{actuality.location}</span>
+      <div className="actualities-container">
+        <div className="underline"></div>
+        <div className="actualities-list">
+          {displayActualities.map((actuality, index) => (
+            <div className="one-actuality" key={index}>
+              <div className="one-actuality-info">
+                <div>
+                  <span className="oa-location">{actuality.location}</span>
+                </div>
+                <button
+                  className="oa-title"
+                  onClick={() => handleButtonClick(actuality)}
+                >
+                  {actuality.title}
+                </button>
+                <p className="oa-desc">{actuality.description}</p>
               </div>
-              <a href="#" className="oa-title">
-                {actuality.title}
-              </a>
-              <p className="oa-desc">{actuality.description}</p>
+              <img src={actuality.image} alt={`Actuality ${index + 1}`} />
             </div>
-            <img src={actuality.image} alt={`Actuality ${index + 1}`} />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
     </>
   );
 }

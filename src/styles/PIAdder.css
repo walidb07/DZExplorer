@@ -2,26 +2,51 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 1000px;
+    /*margin-right: 1000px;*/
 }
 
-.PIcontainer > * {
+.PIfieldsandmap{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.PImapandbutton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.PImapandbutton button{
+    width: 80px;
+    margin-top: 20px;
+}
+
+.PIfields > * {
     margin-top: 20px;
     font-family: Poppins;
 }
 
-.PIcontainer input{
+.PIfields input{
     padding-left: 8px;
     border-radius: 8px;
     height: 30px;
     font-family: Poppins;
+    border: solid 1px #C2C2C2;
 }
 
-.PIcontainer select{
+.PIfields select{
     padding-left: 8px;
     border-radius: 8px;
     height: 30px;
     font-family: Poppins;
+    border: solid 1px #C2C2C2;
+}
+
+.heuresContainer input{
+    font-family: Poppins;
+    border: solid 1px #C2C2C2;
 }
 
 .piMapBody .leaflet-container {
@@ -37,7 +62,7 @@
 .catetheme-container {
     display: flex;
     margin-top: 20px;
-    width: 610px;
+    width: 100%;
     justify-content: space-evenly;
 }
 
@@ -69,6 +94,7 @@
 .PIcontainer button {
     background-color: #31E981;
     color: white;
+    margin-top: 20px;
 }
 
 #descField {

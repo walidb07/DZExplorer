@@ -203,98 +203,103 @@ const PIAdder = () => {
           <h1>Point d'intérêt</h1>
           <div className='green-line'></div>
           <img src='src/images/PIAdder/step1.png'/>
-          <div className='single-container'>
-            <h3>Nom</h3>
-            <input
-              autoComplete="off" 
-              type="text"
-              placeholder="Nom du point d'intérêt"
-              value={piName}
-              onChange={e => setPIName(e.target.value)}
-            />
-          </div>
-          <div className='single-container'>
-            <h3>Description</h3>
-            <input
-              autoComplete="off" 
-              id="descField"
-              type="text"
-              placeholder="Description du point d'intérêt"
-              value={desc}
-              onChange={e => setDesc(e.target.value)}
-            />
-          </div>
-          <div className='catetheme-container'>
-            <div className='categorie-container'>
-                <h3>Catégorie</h3>
+          <div className='PIfieldsandmap'>
+            <div className='PIfields'>
+              <div className='single-container'>
+                <h3>Nom</h3>
                 <input
-                    autoComplete="off" 
-                    type="text"
-                    placeholder="Catégorie"
-                    value={categorie}
-                    onChange={e => setCategorie(e.target.value)}
+                  autoComplete="off"
+                  type="text"
+                  placeholder="Nom du point d'intérêt"
+                  value={piName}
+                  onChange={e => setPIName(e.target.value)}
                 />
-            </div> 
-            <div>
-              <div className='theme-container'>
-                <h3>Thème</h3>
+              </div>
+              <div className='single-container'>
+                <h3>Description</h3>
                 <input
-                    autoComplete="off" 
-                    type="text"
-                    placeholder="Thème"
-                    value={theme}
-                    onChange={e => setTheme(e.target.value)}
+                  autoComplete="off"
+                  id="descField"
+                  type="text"
+                  placeholder="Description du point d'intérêt"
+                  value={desc}
+                  onChange={e => setDesc(e.target.value)}
                 />
+              </div>
+              <div className='catetheme-container'>
+                <div className='categorie-container'>
+                    <h3>Catégorie</h3>
+                    <input
+                        autoComplete="off"
+                        type="text"
+                        placeholder="Catégorie"
+                        value={categorie}
+                        onChange={e => setCategorie(e.target.value)}
+                    />
                 </div>
-            </div>
-          </div>
-          <div className='single-container'>
-            <h3>Région</h3>
-            <select value={selectedRegion} onChange={handleRegionChange}>
-              <option value="">Sélectionner une région</option>
-              {regions.map((region) => (
-                <option key={region.idRegion} value={region.idRegion}>
-                  {region.designation}
-                </option>
-              ))}
-            </select>
-          </div>
-          <input
-            type="file"
-            multiple
-            ref={fileInputRef}
-            style={{ display: 'none' }}
-            onChange={handleImageUpload}
-          />
-          <div className='filesButton'>
-            <button onClick={() => fileInputRef.current.click()}><FontAwesomeIcon icon={faArrowUpFromBracket} style={{color: "#ffffff",}} /> Ajouter des images</button>
+                <div>
+                  <div className='theme-container'>
+                    <h3>Thème</h3>
+                    <input
+                        autoComplete="off"
+                        type="text"
+                        placeholder="Thème"
+                        value={theme}
+                        onChange={e => setTheme(e.target.value)}
+                    />
+                    </div>
+                </div>
+              </div>
+              <div className='single-container'>
+                <h3>Région</h3>
+                <select value={selectedRegion} onChange={handleRegionChange}>
+                  <option value="">Sélectionner une région</option>
+                  {regions.map((region) => (
+                    <option key={region.idRegion} value={region.idRegion}>
+                      {region.designation}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <input
+                type="file"
+                multiple
+                ref={fileInputRef}
+                style={{ display: 'none' }}
+                onChange={handleImageUpload}
+              />
+              <div className='filesButton'>
+                <button onClick={() => fileInputRef.current.click()}><FontAwesomeIcon icon={faArrowUpFromBracket} style={{color: "#ffffff",}} /> Ajouter des images</button>
+                  {uploadedImages.length > 0 && (
+                  <button id="deleteButton" onClick={clearUploadedImages}><FontAwesomeIcon icon={faTrashCan} style={{color: "#ffffff",}} /></button>
+                )}
+              </div>
               {uploadedImages.length > 0 && (
-              <button id="deleteButton" onClick={clearUploadedImages}><FontAwesomeIcon icon={faTrashCan} style={{color: "#ffffff",}} /></button>
-            )}
-          </div>
-          {uploadedImages.length > 0 && (
-            <div className="image-thumbnails">
-              {uploadedImages.map((image, index) => (
-                <img key={index} src={image} alt={`Thumbnail ${index}`} className="thumbnail" />
-              ))}
+                <div className="image-thumbnails">
+                  {uploadedImages.map((image, index) => (
+                    <img key={index} src={image} alt={`Thumbnail ${index}`} className="thumbnail" />
+                  ))}
+                </div>
+              )}
+              {uploadedImages.length > 0 && <p>{uploadedImages.length} image(s) à ajouter</p>}
             </div>
-          )}
-          {uploadedImages.length > 0 && <p>{uploadedImages.length} image(s) à ajouter</p>}
-
-          <div id="map" className='piMapBody'>
-          <MapContainer center={position} zoom={zoom} scrollWheelZoom={true} ref={mapRef} eventHandlers={eventHandlers} 
-            whenCreated={(mapInstance) => (mapRef.current = mapInstance)} whenReady={() => {}}>
-            <TileLayer
-                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | &copy; <a href="https://carto.com/attributions">CARTO</a> | Innova'
-                subdomains="abcd"
-                maxZoom={20}
-            />
-            <Marker position={position} icon={customIcon} draggable={draggable}
-      eventHandlers={eventHandlers} ref={markerRef}></Marker>
-          </MapContainer>
-           </div>
-          <button onClick={handleNextPage}>→</button>
+            <div className='PImapandbutton'>
+              <div id="map" className='piMapBody'>
+              <MapContainer center={position} zoom={zoom} scrollWheelZoom={true} ref={mapRef} eventHandlers={eventHandlers}
+                whenCreated={(mapInstance) => (mapRef.current = mapInstance)} whenReady={() => {}}>
+                <TileLayer
+                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | &copy; <a href="https://carto.com/attributions">CARTO</a> | Innova'
+                    subdomains="abcd"
+                    maxZoom={20}
+                />
+                <Marker position={position} icon={customIcon} draggable={draggable}
+                    eventHandlers={eventHandlers} ref={markerRef}></Marker>
+              </MapContainer>
+               </div>
+              <button onClick={handleNextPage}>→</button>
+            </div>
+          </div>
         </div>
       )}
 

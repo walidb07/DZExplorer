@@ -1,4 +1,4 @@
-import './styles/Admin.css'
+import './styles/Admin.css';
 import React, { useState } from 'react';
 import Tabs from './common/Tabs';
 

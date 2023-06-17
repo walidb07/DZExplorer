@@ -12,6 +12,7 @@ import Carte from './Carte'
 import CarteAdder from './CarteAdder'
 import PIAdder from './PIAdder'
 import PointInteret from './PointInteret.jsx'
+import AdminDash from './AdminDash.jsx'
 
 import {
   BrowserRouter as Router,
@@ -76,6 +77,10 @@ const router=createBrowserRouter([
   {
     path: "/Lieu/:id",
     element: <PointInteret/>,
+  },
+  {
+    path: "/AdminDash",
+    element: <AdminDash/>,
   }
   ]);
 

@@ -26,6 +26,17 @@ color: #000000;
     padding: 10px;
 
 }
+.actualities-container {
+    max-height: 500px; /* Adjust the maximum height as needed */
+    overflow-y: scroll;
+  }
+  
+  .actualities-list {
+    padding-right: 16px; /* Add padding to accommodate scrollbar */
+  }
+  
+  /* Add any other necessary styles for the actualities */
+  
 
 .one-actuality-info{
     display: flex;

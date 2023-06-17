@@ -6,25 +6,33 @@ export default function Actualities({ onActualityClick }) {
     {
       location: 'Tlemcen',
       title: 'Festival de la musique symphonique',
-      description: 'Description description description',
+      description: 'Le présent cahier des charges ',
+      time: 'il y a 2 heures ',
+      date: 'Le 15 Juin.',
       image: 'src/images/Act_1.png',
     },
     {
       location: 'Tlemcen',
       title: 'Festival de la musique symphonique',
       description: 'Description description description',
+      time: 'il y a 2 heures ',
+      date: 'Le 15 Juin.',
       image: 'src/images/Act_2.png',
     },
     {
       location: 'Tlemcen',
       title: 'Festival de la musique symphonique',
       description: 'Description description description',
+      time: 'il y a 2 heures ',
+      date: 'Le 15 Juin.',
       image: 'src/images/Act_3.png',
     },
     {
       location: 'Tlemcen',
       title: 'Festival de la musique symphonique',
       description: 'Description description description',
+      time: 'il y a 2 heures ',
+      date: 'Le 15 Juin.',
       image: 'src/images/Act_4.png',
     },
     {
@@ -32,6 +40,8 @@ export default function Actualities({ onActualityClick }) {
       title: 'Festival de la musique symphonique',
       description: 'Description description description',
       image: 'src/images/Act_5.png',
+      time: 'il y a 2 heures ',
+      date: 'Le 15 Juin.',
     },
     // Add more actualities here
   ];
@@ -56,7 +66,7 @@ export default function Actualities({ onActualityClick }) {
             <div className="one-actuality" key={index}>
               <div className="one-actuality-info">
                 <div>
-                  <span className="oa-location">{actuality.location}</span>
+                  <span className="oa-location">{actuality.location} - {actuality.time}</span>
                 </div>
                 <button
                   className="oa-title"

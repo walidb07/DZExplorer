@@ -6,6 +6,8 @@ import { Icon } from 'leaflet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -305,7 +307,7 @@ const PIAdder = () => {
                     eventHandlers={eventHandlers} ref={markerRef}></Marker>
               </MapContainer>
                </div>
-              <button onClick={handleNextPage}>→</button>
+              <button onClick={handleNextPage}><FontAwesomeIcon icon={faArrowRight} style={{color: "#ffffff",}} /></button>
             </div>
           </div>
         </div>
@@ -331,8 +333,8 @@ const PIAdder = () => {
           </div>
 
           <div className='buttonsContainer'>
-            <button onClick={handlePreviousPage}>←</button>
-            <button onClick={handleNextPage}>→</button>
+            <button onClick={handlePreviousPage}><FontAwesomeIcon icon={faArrowLeft} style={{color: "#ffffff",}} /></button>
+            <button onClick={handleNextPage}><FontAwesomeIcon icon={faArrowRight} style={{color: "#ffffff",}} /></button>
           </div>
         </div>
       )}
@@ -423,7 +425,7 @@ const PIAdder = () => {
           {errorMessage && <p className='error-message'>{errorMessage}</p>}
           {successMessage && <p className='success-message'>{successMessage}</p>}
           <div className='thirdbuttonsContainer'>
-          <button onClick={handlePreviousPage}>←</button>
+          <button onClick={handlePreviousPage}><FontAwesomeIcon icon={faArrowLeft} style={{color: "#ffffff",}} /></button>
           <button onClick={handleFormSubmit}>Ajouter point d'intérêt</button>
           </div>
         </div>

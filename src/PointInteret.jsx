@@ -5,6 +5,8 @@ import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -12,25 +14,33 @@ import axios from 'axios';
 function PointInteret() {
     const { id } = useParams();
     // PARTIE IMAGES
-    const images = [
-        '../src/images/Blida_centre.jpg',
-        '../src/images/da24189d9590469f424f82ccbd90a3a8_M.jpg',
-        '../src/images/fort-santa-cruz.jpg',
-        '../src/images/img-20171020-132538-largejpg.jpg',
-        '../src/images/téléchargement.jpg',
-        // Add more image URLs here
-    ];
+    const [receivedImages, setReceivedImages] = useState([]);
+    const [allImages, setAllImages] = useState([]);
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const goToPreviousImage = () => {
-        setCurrentImageIndex(prevIndex => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+        setCurrentImageIndex(prevIndex => (prevIndex === 0 ? receivedImages.length - 1 : prevIndex - 1));
       };
     
       const goToNextImage = () => {
-        setCurrentImageIndex(prevIndex => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+        setCurrentImageIndex(prevIndex => (prevIndex === receivedImages.length - 1 ? 0 : prevIndex + 1));
       };
 
+      //GET IMAGES FOR POINT INTERET
+      useEffect(() => {
+        axios.get(`http://127.0.0.1:8000/PiImage/`)
+          .then(response => {
+            setReceivedImages(response.data);
+            //const filteredImages = allImages.filter(item => item.piId === id);
+            //setReceivedImages(filteredImages);
+          })
+          .catch(error => {
+            console.error('Error fetching comments:', error);
+          });
+      }, [id]);
+    
+      
 
     // PARTIE COMMENTAIRES
     const [comment, setComment] = useState('');
@@ -173,13 +183,13 @@ function PointInteret() {
     return (
         <>
             <div className="PIpageRoot">
-            {!(images.length === 0) && (
+            {receivedImages.length > 0 && (
               <div className="gallery">
-                <button onClick={goToPreviousImage}>&larr;</button>
+                <button onClick={goToPreviousImage}><FontAwesomeIcon icon={faCaretLeft} style={{color: "#ffffff",}} /></button>
                 <div className="image-container">
-                  <img src={images[currentImageIndex]} alt="Gallery" />
+                  <img src={'http://127.0.0.1:8000/' + receivedImages[currentImageIndex]?.image} alt="Gallery" />
                 </div>
-                <button onClick={goToNextImage}>&rarr;</button>
+                <button onClick={goToNextImage}><FontAwesomeIcon icon={faCaretRight} style={{color: "#ffffff",}} /></button>
               </div>
             )}
                 <div className="titreandrating">

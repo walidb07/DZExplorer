@@ -102,6 +102,10 @@
     padding-bottom: 60px;
 }
 
+.gallery button{
+    background-color: #31E981;
+}
+
 .joursSemaine {
     display: flex;
     flex-wrap: wrap;
@@ -179,8 +183,8 @@
     width: 150px;
   }
 
-  .thirdbuttonsContainer *{
-    margin-left: 40px;
+  .thirdbuttonsContainer button{
+    margin-left: 20px;
   }
 
   .image-thumbnails{

@@ -9,7 +9,7 @@ How to install:
 How to install database and run backend server:
   1) Install MySQL if not installed before.
   2) Create a new MySQL connection if not done before.
-  3) Change the password in settings.py
+  3) Change the password in DZExplorer/DZExplorer_Backend/e_tourisme/settings.py line 102 to your MySQL connection password.
   4) Create a new schema called 'e_tourisme' in MySQL.
   5) Open CMD in subfolder DZExplorer/DZExplorer_Backend.
   6) Run command` python manage.py makemigrations`.

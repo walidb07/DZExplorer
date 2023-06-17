@@ -21,6 +21,19 @@ function Dashboard() {
   );
 }
 
+function DashboardProfile() {
+  return (
+    <div className='right-section'>
+      <div className="head-dash">
+        <HeadDash />
+      </div>
+      <div className="recommend-profile">
+        <Profile />
+      </div>
+    </div>
+  );
+}
+
 function DashboardCarte() {
   return (
     <div className='right-section'>

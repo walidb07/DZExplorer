@@ -2,21 +2,12 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Carousel.css";
+
 const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 99990, min: 0 },
     items: 4,
     slidesToSlide: 4 // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 768 },
-    items: 3,
-    slidesToSlide: 3 // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 767, min: 464 },
-    items: 2,
-    slidesToSlide: 1 // optional, default to 1.
   }
 };
 
@@ -24,44 +15,37 @@ const sliderImageUrl = [
   //First image url
   {
     url:
-      "src/images/DashBoard/Pics4.jpg"
+      "src//common//Group123.svg"
   },
   {
     url:
-      "src/images/DashBoard/Pics3.jpg"
+      "src//common//Group123.svg"
   },
   //Second image url
   {
     url:
-      "src/images/DashBoard/Pics2.jpg"
+      "src//common//Group123.svg"
   },
   //Third image url
   {
     url:
-      "src/images/DashBoard/Pics1.jpg"
+      "src//common//Group123.svg"
+  },
+  {
+    url:
+      "src//common//Group123.svg"
   },
 
   //Fourth image url
 
   {
     url:
-      "src/images/DashBoard/Pics1.jpg"
+      "src//common//Group123.svg"
   }
 ];
 const Slider = () => {
   return (
     <div className="parent">
-      <style>
-      {`
-      .parent {
-        width: 50%; /* Adjust the width as needed */
-        height: 50%; /* Adjust the height as needed */
-        margin: 0; /* Centers the container horizontally */
-        position: absolute;
-        left: 10%;
-      }
-      `}
-    </style>
       <Carousel
         responsive={responsive}
         autoPlay={true}

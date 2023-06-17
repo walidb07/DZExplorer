@@ -11,7 +11,7 @@ function HeadDash() {
     <div className="relative rounded-full overflow-hidden border border-gray-300">
       <input
         type="text"
-        className="w-full h-16 px-4 py-2 bg-white rounded-full focus:outline-none"
+        className="w-full h-20 px-4 py-2 bg-white rounded-full focus:outline-none"
         placeholder="Search..."
       />
       <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-500">

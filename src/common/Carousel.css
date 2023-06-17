@@ -4,7 +4,13 @@
     box-sizing: border-box;
   }
   
-
+.parent{
+  width: 70%;
+  height: 70%;
+  margin: 0px;
+  position: absolute;
+  left: 20%;
+}
   
   .slider {
     margin: 0 20px;

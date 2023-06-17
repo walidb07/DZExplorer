@@ -1,30 +1,111 @@
-import Calendar from './Calendar'
-import '../styles/common/Tabs.css'
+import { useState } from 'react';
+import Calendar from './Calendar';
+import '../styles/common/Tabs.css';
+import HeadDash from "./HeadDash.jsx"
+import Recommendations from "./Recommendations.jsx"
+import './Dashboard.css'
+import Carte from '../Carte';
 
-function Tabs() {
-    const handleButtonClick = (event) => {
-      };
 
-    return(
-        <>
-        <div className='bodyTabs'>
-        <div className="welcome-section">
-            <div className="left-section">
-                <div className="logo">
-                    <img src="logo.png" alt="Logo"></img>
-                </div>
-                <div className="tab-container">
-                    <button onClick={handleButtonClick} className="tab-active" >Accueil</button>
-                    <button onClick={handleButtonClick} className="tab" >Carte</button>
-                    <button onClick={handleButtonClick} className="tab" >Actualités</button>
-                    <button onClick={handleButtonClick} className="tab" >Se déconnecter</button>
-                </div>
-                <Calendar />
-            </div>
-        </div>
-        </div>
-        </>
+function  Dashboard() {
+    return (
+        <div className='right-section'>
+          <div className="head-dash">
+          <HeadDash />
+          </div>
+            <div className="recommend">
+            <Recommendations />
+          </div>
+      </div>
     )
 }
+function  DashboardCarte() {
+  return (
+      <div className='right-section'>
+        <div className="head-dash">
+        <HeadDash />
+        </div>
+          <div className="recommend-carte">
+          <Carte />
+        </div>
+    </div>
+  )
+}
+function  DashboardNews() {
+  return (
+      <div className='right-section'>
+        <div className="head-dash">
+        <HeadDash />
+        </div>
+          <div className="recommend-news">
+          <Recommendations />
+        </div>
+    </div>
+  )
+}
+function Tabs() {
+  const [activeTab, setActiveTab] = useState('Accueil');
 
-export default Tabs
+  const handleButtonClick = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'Accueil':
+        return <Dashboard />;
+      case 'Carte':
+        return <DashboardCarte />;
+      case 'Actualités':
+        return <DashboardNews />;
+      case 'Se déconnecter':
+        return <Dashboard />;
+      default:
+        return <Dashboard />;
+    }
+  };
+
+  return (
+    <>
+      <div className="bodyTabs">
+        <div className="welcome-section">
+          <div className="left-section">
+            <div className="logo">
+              <img src="src/images/logo-bold.svg" alt="Logo" />
+            </div>
+            <div className="tab-container">
+              <button
+                onClick={() => handleButtonClick('Accueil')}
+                className={activeTab === 'Accueil' ? 'tab-active' : 'tab'}
+              >
+                Accueil
+              </button>
+              <button
+                onClick={() => handleButtonClick('Carte')}
+                className={activeTab === 'Carte' ? 'tab-active' : 'tab'}
+              >
+                Carte
+              </button>
+              <button
+                onClick={() => handleButtonClick('Actualités')}
+                className={activeTab === 'Actualités' ? 'tab-active' : 'tab'}
+              >
+                Actualités
+              </button>
+              <button
+                onClick={() => handleButtonClick('Se déconnecter')}
+                className={activeTab === 'Se déconnecter' ? 'tab-active' : 'tab'}
+              >
+                Se déconnecter
+              </button>
+            </div>
+            <Calendar />
+          </div>
+          {renderContent()}
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Tabs;

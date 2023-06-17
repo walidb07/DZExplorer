@@ -13,9 +13,11 @@ function PointInteret() {
     const { id } = useParams();
     // PARTIE IMAGES
     const images = [
-        'src/images/logo.svg',
-        'src/images/logo-bold.svg',
-        'src/images/PIAdder/step2.png',
+        '../src/images/Blida_centre.jpg',
+        '../src/images/da24189d9590469f424f82ccbd90a3a8_M.jpg',
+        '../src/images/fort-santa-cruz.jpg',
+        '../src/images/img-20171020-132538-largejpg.jpg',
+        '../src/images/téléchargement.jpg',
         // Add more image URLs here
     ];
 
@@ -183,7 +185,7 @@ function PointInteret() {
                 <button className='thButton' onClick={handleTransportButtonClick}><FontAwesomeIcon icon={faBus} style={{color: "#ffffff",}}  /> Transport</button>
                 <button className='thButton'onClick={handleHorairesButtonClick}><FontAwesomeIcon icon={faClock} style={{color: "#ffffff",}} /> Horaires</button>
                 <div className="commentaires">
-                    <div className='commentaireSectionTitre'>N commentaires</div>
+                    <div className='commentaireSectionTitre'>{commentsPoint.length} commentaires</div>
                     <div className='posterCommentaire'>
                         <div className='photoProfilUtilisateur'>
                             {/* User profile picture */}

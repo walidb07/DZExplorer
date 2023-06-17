@@ -75,6 +75,8 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
   .gallery-image {
@@ -89,6 +91,8 @@
     max-height: 100%;
     display: block;
     margin: 0 auto;
+    border-radius: 15px;
+
   }
 
 .commentaires{

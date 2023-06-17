@@ -43,7 +43,7 @@ function Login() {
             setErrorMessage('Erreur de connexion');
         } else if (response.data === 'loging succesfully') {
            setErrorMessage('');
-           navigate("/Carte");
+           navigate("/Dashboard");
         }
 
         }).catch(error => {

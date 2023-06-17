@@ -62,7 +62,7 @@ function CarteAdder() {
       <div className='CarteAdderInfos'>
         <p>Veuillez ajuster le cadre initial de la carte avant de l'ajouter.</p>
         <div className='CarteName'>
-            <h3>Nom de la carte:</h3>
+            <h3>Nom de la carte :</h3>
               <input autoComplete="off"  id='mapName' className='carteadder-textbox' type='text' placeholder='Entrez le nom de la carte' />
         </div>
         <div className='CarteAdderButtonContainer'>

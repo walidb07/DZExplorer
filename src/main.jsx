@@ -36,7 +36,7 @@ const router=createBrowserRouter([
     element: <Tabs/>,
   },
   {
-    path: "/tabs",
+    path: "/Dashboard",
     element: <Tabs/>,
   },
   {

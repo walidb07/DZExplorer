@@ -1,6 +1,10 @@
+.carteRoot{
+    margin-left: 100px;
+}
+
 .carteRoot .leaflet-container {
-    width: 1000px;
-    height: 100vh;
+    width: 600px;
+    height: 400px;
   }
 
 .leaflet-popup-content-wrapper {
@@ -20,8 +24,7 @@
 }
 
 .regionDropdownContainer{
-    margin-top: 100px;
-    margin-left: 50px;
+    padding:50px;
     font-style: Poppins;
 }
 

@@ -163,22 +163,27 @@ function PointInteret() {
     }, [point.transports]);
 
     //GET POINT REGION
-    const [region, setRegion] = useState('');
+    const [regions, setRegions] = useState('');
+
     useEffect(() => {
       const fetchRegion = async () => {
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/Region/${point.idRegion}/`);
-          setRegion(response.data);
+          console.log("region id: ", point.regionId);
+          const response = await axios.get('http://127.0.0.1:8000/Region/');
+          const regions = response.data;
+          const filteredRegion = regions.filter(region => region.idRegion === point.regionId);
+          console.log(filteredRegion);
+          setRegions(filteredRegion[0]); // Assuming there will be only one matching region
         } catch (error) {
           console.error('Error fetching region:', error);
         }
       };
     
-      if (point && point.idRegion) {
+      if (point.regionId) {
         fetchRegion();
-        console.log("region:",region);
       }
     }, [point]);
+    
   
     return (
         <>
@@ -202,7 +207,7 @@ function PointInteret() {
                       )
                     ) : ''} <FontAwesomeIcon icon={faStar} style={{color: "#000000",}} /></div>
                 </div>
-                <div className="carteName"><FontAwesomeIcon icon={faLocationDot} style={{color: "#000000",}} /> {region.designation}</div>
+                <div className="carteName"><FontAwesomeIcon icon={faLocationDot} style={{color: "#000000",}} /> {regions.designation}</div>
                 <div className="tags">
                     <div className='tagBox'>Catégorie: {point.categorie}</div>
                     <div className='tagBox'>Thème: {point.theme}</div>

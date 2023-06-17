@@ -59,7 +59,7 @@ function Tabs() {
       case 'Actualités':
         return <DashboardNews />;
       case 'Se déconnecter':
-        return <Dashboard />;
+        return <>HANDLE SE DECONNECTER</>;
       default:
         return <Dashboard />;
     }
@@ -70,7 +70,7 @@ function Tabs() {
       <div className="bodyTabs">
         <div className="welcome-section">
           <div className="left-section">
-            <div className="logo">
+            <div className="logo2">
               <img src="src/images/logo-bold.svg" alt="Logo" />
             </div>
             <div className="tab-container">
@@ -92,12 +92,12 @@ function Tabs() {
               >
                 Actualités
               </button>
-              <button
-                onClick={() => handleButtonClick('Se déconnecter')}
-                className={activeTab === 'Se déconnecter' ? 'tab-active' : 'tab'}
+              <a href='/'>
+              <button className={activeTab === 'Se déconnecter' ? 'tab-active' : 'tab'}
               >
                 Se déconnecter
               </button>
+              </a>
             </div>
             <Calendar />
           </div>

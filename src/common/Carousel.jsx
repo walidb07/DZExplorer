@@ -15,32 +15,32 @@ const sliderImageUrl = [
   //First image url
   {
     url:
-      "src//common//Group123.svg"
+      "src//images//Group123.svg"
   },
   {
     url:
-      "src//common//Group123.svg"
+      "src//images//Group123.svg"
   },
   //Second image url
   {
     url:
-      "src//common//Group123.svg"
+      "src//images//Group123.svg"
   },
   //Third image url
   {
     url:
-      "src//common//Group123.svg"
+      "src//images//Group123.svg"
   },
   {
     url:
-      "src//common//Group123.svg"
+      "src//images//Group123.svg"
   },
 
   //Fourth image url
 
   {
     url:
-      "src//common//Group123.svg"
+      "src//images//Group123.svg"
   }
 ];
 const Slider = () => {

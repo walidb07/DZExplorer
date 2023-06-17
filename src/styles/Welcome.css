@@ -31,8 +31,9 @@
 
   /* Style the logo */
   .logo img {
-    height: 10px;
-  }
+    height: 70px;
+    margin-top: 10px;
+}
   
   /* Style the navigation buttons */
   .nav-buttons a {

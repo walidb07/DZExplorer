@@ -296,10 +296,10 @@ function Register() {
     <>
       <div className='root-register'>
         <div className='left-image'>
-          <img src='src/images/Register-Login/Group 31.png' alt='' />
+          <img src='src/images/Register-Login/rlimage.png' alt='' />
         </div>
         <div className='right-UI'>
-          <img src='src/images/Register-Login/Group 32.png' alt='' />
+          <img src='src/images/Register-Login/header.png' alt='' />
           <h1>S'inscrire</h1>
           <div className='green-line'></div>
           <p>Connectez-vous à votre compte pour continuer</p>

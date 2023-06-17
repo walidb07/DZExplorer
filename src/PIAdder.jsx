@@ -3,6 +3,9 @@ import axios from 'axios';
 import './styles/PIAdder.css'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { Icon } from 'leaflet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -125,13 +128,25 @@ const PIAdder = () => {
         categorie : categorie,
         theme : theme,
         regionId : selectedRegion,
-        transports : selectedMts
+        transports : selectedMts,
+        images : uploadedImages
       })
         .then(response => {
+          //Uploader les images du PI créé
+
+
+
+
+
           // Handle success
-          setErrorMessage('');
-          setSuccessMessage('Point d\'intérêt ajouté avec succès');
-          console.log({ piName, desc, categorie, theme, position, selectedDays, openingTime, closingTime, mtsData, selectedMts, selectedRegion });
+          if (response.data === 'error ,make sure you have supply all the required fields ') {
+            setErrorMessage('Erreur lors de l\'ajout du point d\'intérêt');
+            setSuccessMessage('');
+          } else if (response.data === 'creating PI Successfully') {
+            setErrorMessage('');
+            setSuccessMessage('Point d\'intérêt ajouté avec succès');
+          console.log({ piName, desc, categorie, theme, position, selectedDays, openingTime, closingTime, mtsData, selectedMts, selectedRegion, uploadedImages });
+          }
         })
         .catch(error => {
           // Handle error
@@ -144,6 +159,41 @@ const PIAdder = () => {
         setSuccessMessage('');
       }
   };
+
+  //IMAGES
+  const [uploadedImages, setUploadedImages] = useState([]);
+  const fileInputRef = useRef(null);
+
+  const handleImageUpload = (event) => {
+    const files = event.target.files;
+    const imagesArray = [];
+  
+    for (let i = 0; i < files.length; i++) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        imagesArray.push(e.target.result);
+        if (imagesArray.length === files.length) {
+          setUploadedImages(imagesArray);
+          console.log('Uploaded Images:', imagesArray);
+        }
+      };
+      reader.readAsDataURL(files[i]);
+    }
+  };
+  
+  const clearUploadedImages = () => {
+    setUploadedImages([]);
+  };
+
+
+
+
+
+
+
+
+
+
 
 
   return (
@@ -209,7 +259,28 @@ const PIAdder = () => {
               ))}
             </select>
           </div>
-          <button onClick='#'>Ajouter des images</button>
+          <input
+            type="file"
+            multiple
+            ref={fileInputRef}
+            style={{ display: 'none' }}
+            onChange={handleImageUpload}
+          />
+          <div className='filesButton'>
+            <button onClick={() => fileInputRef.current.click()}><FontAwesomeIcon icon={faArrowUpFromBracket} style={{color: "#ffffff",}} /> Ajouter des images</button>
+              {uploadedImages.length > 0 && (
+              <button id="deleteButton" onClick={clearUploadedImages}><FontAwesomeIcon icon={faTrashCan} style={{color: "#ffffff",}} /></button>
+            )}
+          </div>
+          {uploadedImages.length > 0 && (
+            <div className="image-thumbnails">
+              {uploadedImages.map((image, index) => (
+                <img key={index} src={image} alt={`Thumbnail ${index}`} className="thumbnail" />
+              ))}
+            </div>
+          )}
+          {uploadedImages.length > 0 && <p>{uploadedImages.length} image(s) à ajouter</p>}
+
           <div id="map" className='piMapBody'>
           <MapContainer center={position} zoom={zoom} scrollWheelZoom={true} ref={mapRef} eventHandlers={eventHandlers} 
             whenCreated={(mapInstance) => (mapRef.current = mapInstance)} whenReady={() => {}}>

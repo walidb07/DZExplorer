@@ -185,7 +185,7 @@ function PointInteret() {
                 <button className='thButton' onClick={handleTransportButtonClick}><FontAwesomeIcon icon={faBus} style={{color: "#ffffff",}}  /> Transport</button>
                 <button className='thButton'onClick={handleHorairesButtonClick}><FontAwesomeIcon icon={faClock} style={{color: "#ffffff",}} /> Horaires</button>
                 <div className="commentaires">
-                    <div className='commentaireSectionTitre'>N commentaires</div>
+                    <div className='commentaireSectionTitre'>{commentsPoint.length} commentaires</div>
                     <div className='posterCommentaire'>
                         <div className='photoProfilUtilisateur'>
                             {/* User profile picture */}

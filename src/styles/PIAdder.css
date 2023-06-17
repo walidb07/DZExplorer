@@ -155,3 +155,26 @@
   .thirdbuttonsContainer *{
     margin-left: 40px;
   }
+
+  .image-thumbnails{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .thumbnail {
+    max-width: 70px;
+    max-height: 70px;
+    object-fit: contain;
+    margin: 5px;
+    border-radius: 5px;
+  }
+
+  .filesButton {
+    display: flex;
+  }
+
+
+#deleteButton {
+    background-color: #CCCCCC;
+    margin-left: 10px;
+}

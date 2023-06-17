@@ -2,8 +2,8 @@
 
 How to install:
   1) Clone repository.
-  2) Open CMD in repository and run command npm run dev
-  3) Install database and run backend server.
+  2) Open CMD in repository and run command `npm run dev` to start the frontend server.
+  3) Install database and run backend server. (explained below)
   4) Access localhost:5173.
 
 How to install database and run backend server:

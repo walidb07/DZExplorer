@@ -17,7 +17,7 @@ export default function Event({ actuality }) {
             <span className="location-span">{actuality.location}</span>
           </div>
           <h1>{actuality.title}</h1>
-          <span className='span-time'>Il y a 2 heures </span>
+          <span className='span-time'>{actuality.time} - {actuality.date} </span>
           <p>Le présent cahier des charges définit les conditions et les modalités 
             selon lesquelles le prestataire sengage pour fournir,
              sur appel, des solutions pour répondre aux 

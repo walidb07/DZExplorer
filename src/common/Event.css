@@ -57,12 +57,16 @@
   .description-section * {
     padding: 15px;
   }
+  .description-section h1 {
+    font-weight:bold;
+  }
 
   .description-section .span-time {
     padding: 0px;
     padding-left: 15px;
     font-size:15px;
     color: rgba(0, 0, 0, 0.441);
+    
   }
   
   

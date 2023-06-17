@@ -23,9 +23,10 @@ function HeadDash() {
     </div>
     <div className="flex items-center justify-center">
       <img
-        src="src/images/DashBoard/Prp.png"
+        src="src/images/DashBoard/ProfilePic.png"
         alt="baby with headphones"
         className="w-20 h-20 rounded-full object-cover"
+
       />
     </div>
   </div>

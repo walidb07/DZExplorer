@@ -11,6 +11,7 @@ import Admin from './Admin'
 import Carte from './Carte'
 import CarteAdder from './CarteAdder'
 import PIAdder from './PIAdder'
+import PointInteret from './PointInteret.jsx'
 
 import {
   BrowserRouter as Router,
@@ -32,7 +33,7 @@ const router=createBrowserRouter([
   },
   {
     path: "/test",
-    element: <MainPage/>,
+    element: <PIAdder/>,
   },
   {
     path: "/register",
@@ -65,6 +66,14 @@ const router=createBrowserRouter([
   {
     path: "/PIAdder",
     element: <PIAdder/>,
+  },
+  {
+    path: "/Carte",
+    element: <Carte/>,
+  },
+  {
+    path: "/Lieu/:id",
+    element: <PointInteret/>,
   }
   ]);
 

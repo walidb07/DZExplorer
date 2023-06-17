@@ -27,10 +27,16 @@ export default function Actualities() {
       description: 'Description description description',
       image: 'src/images/Act_4.png',
     },
+    {
+      location: 'Tlemcen',
+      title: 'Festival de la musique symphonique',
+      description: 'Description description description',
+      image: 'src/images/Act_5.png',
+    },
     // Add more actualities here
   ];
 
-  const maxDisplayedItems = 3; // Maximum number of actualities to display
+  const maxDisplayedItems = 5; // Maximum number of actualities to display
   const displayActualities = actualities.slice(0, maxDisplayedItems); // Slice the actualities array based on the limit
 
   return (

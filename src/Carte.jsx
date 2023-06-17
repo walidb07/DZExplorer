@@ -67,7 +67,17 @@ function Carte() {
   return (
     <>
       <div className="carteRoot">
-        <div id="map">
+      <div className="regionDropdownContainer">
+          <select value={selectedRegion?.idRegion} onChange={handleRegionChange}>
+            <option value="">Choisir une région</option>
+            {regions.map((region) => (
+              <option key={region.idRegion} value={region.idRegion}>
+                {region.designation}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className='map-css' id="map">
           <MapContainer ref={mapRef} center={mapPosition} zoom={mapZoom} scrollWheelZoom={true}>
             <TileLayer
               url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
@@ -91,16 +101,7 @@ function Carte() {
             ))}
           </MapContainer>
         </div>
-        <div className="regionDropdownContainer">
-          <select value={selectedRegion?.idRegion} onChange={handleRegionChange}>
-            <option value="">Choisir une région</option>
-            {regions.map((region) => (
-              <option key={region.idRegion} value={region.idRegion}>
-                {region.designation}
-              </option>
-            ))}
-          </select>
-        </div>
+        
       </div>
     </>
   );

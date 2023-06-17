@@ -1,0 +1,61 @@
+.title-act{
+    position: absolute;
+width: 163px;
+height: 47px;
+left: 408.47px;
+top: 186.64px;
+
+font-family: 'Poppins';
+font-weight: 600;
+font-size: 31.6337px;
+line-height: 47px;
+text-align: center;
+border-bottom: 5px solid rgba(49, 233, 129, 1);
+
+color: #000000;
+}
+
+.one-actuality{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+    margin-left: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.192);
+    border-radius: 1rem;
+    padding: 10px;
+
+}
+
+.one-actuality-info{
+    display: flex;
+    flex-direction: column;
+}
+.one-actuality-info *{
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.one-actuality img{
+    width: 30%;
+}
+
+.oa-location{
+    color: rgba(97, 97, 97, 1);
+
+
+background: #EEEEEE;
+border-radius: 13.1807px;
+}
+
+.oa-title{
+    font-family: 'Poppins';
+font-style:oblique;
+font-weight: 600;
+font-size: 30.0891px;
+line-height: 13px;
+/* identical to box height, or 63% */
+
+
+color: #000000;
+}

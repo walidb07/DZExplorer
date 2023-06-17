@@ -1,0 +1,80 @@
+.admin-register-wrap {
+    padding-top: 5%;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .admin-register-wrap h1 {
+    color: #ffffff;
+  }
+  
+  .admin-field {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 51.5px;
+    z-index: 1;
+    justify-content: center;
+  }
+  
+  .admin-register-wrap button {
+    background: #31e981;
+    border-radius: 51.5px;
+    border: none;
+    font-family: inherit;
+    font-size: 12pt;
+    font-weight: bold;
+    color: white;
+    width: 35%;
+    padding: 1%;
+  }
+  
+  .admin-register-wrap * {
+    margin: 20px;
+  }
+  
+  .account-img {
+    width: 4%;
+    height: 4%;
+    align-self: center;
+    margin-right: 5px;
+    margin-left: 35px;
+  }
+  
+  .password-img {
+    width: 3.2%;
+    height: 3.2%;
+    align-self: center;
+    margin-right: 5px;
+    margin-left: 37px;
+  }
+  
+  .admin-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 10;
+    width: 250%;
+    color: #ffffff;
+  }
+  
+  .admin-input::placeholder {
+    color: #dddddd;
+  }
+  
+  .error-message-admin {
+    color: red;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding-right: 25px;
+  }
+  

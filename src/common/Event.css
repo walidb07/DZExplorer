@@ -1,15 +1,68 @@
-.background-container{
-    width: 1500px;
-    background-image:url("src//images//RACT_1.png");
-    background-size: cover;
-}
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 135vh;
+  }
 
-.right-section{
-    margin: 25px;
-    background: linear-gradient(180deg,
-     rgba(216, 228, 255, 0.5) 0%,
-     rgba(49, 233, 129, 0.1) 100%,
-     rgba(49, 233, 129, 0.1) 100%);
-    border-radius: 40px;
+  .add-agenda{
+    background: #00120B;
+    border-radius: 12.0152px;
+    color:white;
+  }
+  
+  .image-container-2 img {
+    display: block;
     width: 100%;
-}   
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    border-radius: 40px;
+  }
+
+  .span-time{
+    padding:0px;
+  }
+  
+  .event-container {
+    margin: 25px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      180deg,
+      rgba(216, 228, 255, 0.5) 0%,
+      rgba(49, 233, 129, 0.1) 100%,
+      rgba(49, 233, 129, 0.1) 100%
+    );
+    border-radius: 40px;
+  }
+  
+  .location-span {
+    background: #31e981;
+    border-radius: 22.6953px;
+    padding: 15px;
+    color: white;
+  }
+  
+  .description-section {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .description-section * {
+    padding: 15px;
+  }
+
+  .description-section .span-time {
+    padding: 0px;
+    padding-left: 15px;
+    font-size:15px;
+    color: rgba(0, 0, 0, 0.441);
+  }
+  
+  

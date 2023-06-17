@@ -37,7 +37,13 @@ color: #000000;
   
   /* Add any other necessary styles for the actualities */
   
+  button:hover {
+    border-color: transparent;
+}
 
+button{
+    background-color: transparent;
+}
 .one-actuality-info{
     display: flex;
     flex-direction: column;

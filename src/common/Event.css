@@ -1,0 +1,15 @@
+.background-container{
+    width: 1500px;
+    background-image:url("src//images//RACT_1.png");
+    background-size: cover;
+}
+
+.right-section{
+    margin: 25px;
+    background: linear-gradient(180deg,
+     rgba(216, 228, 255, 0.5) 0%,
+     rgba(49, 233, 129, 0.1) 100%,
+     rgba(49, 233, 129, 0.1) 100%);
+    border-radius: 40px;
+    width: 100%;
+}   

@@ -279,7 +279,7 @@ function Register() {
             setSuccessMessage('');
           } else {
             setErrorMessage('');
-            setSuccessMessage('Compte créé avec succès');
+            setSuccessMessage('Un email a été envoyé');
             
           }
           

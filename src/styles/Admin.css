@@ -10,8 +10,11 @@
 }
 
 .admin-logo{
-/* identical to box height */
-color: #FFFFFF;
+    height: 120px;
+    width: 120px;
+    border-radius: 20%;
+    background-color: rgba(255,255,255,0.4);
+    padding: 10px;
 }
 
 .admin-field {
@@ -28,7 +31,6 @@ color: #FFFFFF;
 
 
 .admin-login-wrap {
-    padding-top: 5%;
     justify-self: center;
     display:flex;
     flex-direction: column;

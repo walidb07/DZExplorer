@@ -14,9 +14,7 @@ import axios from 'axios';
 function PointInteret() {
     const { id } = useParams();
     // PARTIE IMAGES
-    const [receivedImages, setReceivedImages] = useState([]);
-    const [allImages, setAllImages] = useState([]);
-
+    const [receivedImages, setReceivedImages] = useState({receivedImages:[]});
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const goToPreviousImage = () => {
@@ -29,16 +27,26 @@ function PointInteret() {
 
       //GET IMAGES FOR POINT INTERET
       useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/PiImage/`)
-          .then(response => {
-            setReceivedImages(response.data);
-            //const filteredImages = allImages.filter(item => item.piId === id);
-            //setReceivedImages(filteredImages);
-          })
-          .catch(error => {
-            console.error('Error fetching comments:', error);
-          });
-      }, [id]);
+        const fetchImages = async () => {
+          if (point.idPoint) { // Add this condition
+            try {
+              const response = await axios.get('http://127.0.0.1:8000/PiImage/');
+              console.log('response: ',response.data);
+              const filteredImages = response.data.filter(item => item.piId === 1);
+              setReceivedImages(filteredImages);
+            } catch (error) {
+              console.error('Error fetching images:', error);
+            }
+          }
+        };
+      
+        fetchImages();
+      }, [id,receivedImages]);
+
+      useEffect(() => {
+        console.log('received:',receivedImages);
+      }, [receivedImages])
+      
     
       
 
@@ -188,14 +196,18 @@ function PointInteret() {
     return (
         <>
             <div className="PIpageRoot">
-            {receivedImages.length > 0 && (
+            {receivedImages.length > 0 &&  (
               <div className="gallery">
-                <button onClick={goToPreviousImage}><FontAwesomeIcon icon={faCaretLeft} style={{color: "#ffffff",}} /></button>
-                <div className="image-container">
-                  <img src={'http://127.0.0.1:8000/' + receivedImages[currentImageIndex]?.image} alt="Gallery" />
+                    <button onClick={goToPreviousImage}>
+                      <FontAwesomeIcon icon={faCaretLeft} style={{ color: "#ffffff" }} />
+                    </button>
+                    <div className="image-container">
+                      <img src={'http://127.0.0.1:8000/' + receivedImages[currentImageIndex]?.image} alt="Gallery" />
+                    </div>
+                    <button onClick={goToNextImage}>
+                      <FontAwesomeIcon icon={faCaretRight} style={{ color: "#ffffff" }} />
+                    </button>
                 </div>
-                <button onClick={goToNextImage}><FontAwesomeIcon icon={faCaretRight} style={{color: "#ffffff",}} /></button>
-              </div>
             )}
                 <div className="titreandrating">
                     <div className='titre'>{point.Nom}</div>

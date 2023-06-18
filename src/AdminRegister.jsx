@@ -48,7 +48,7 @@ function AdminRegister() {
     <>
       <img className='background-admin' src='src\images\Admin\BackgroundAdmin.png'/>
       <div className="admin-register-wrap">
-        <h1>Inscription Administrateur</h1>
+        <img className='admin-logo' src='src\images\Admin\adminLogo.svg'/>   
         <div className="admin-field">
           <img className="account-img" src="src\images\Admin\VectorAccount.svg" alt="account icon" />
           <input id="adminNom" className="admin-input" type="text" placeholder="Nom" />
@@ -58,7 +58,7 @@ function AdminRegister() {
           <input id="adminPrenom" className="admin-input" type="text" placeholder="Prénom" />
         </div>
         <div className="admin-field">
-          <img className="account-img" src="src\images\Admin\VectorAccount.svg" alt="account icon" />
+          <img className="account-img" src="src\images\Admin\email.png" alt="account icon" />
           <input id="adminEmail" className="admin-input" type="text" placeholder="E-mail" />
         </div>
         <div className="admin-field">
@@ -66,7 +66,7 @@ function AdminRegister() {
           <input id="adminPassword" className="admin-input" type="password" placeholder="Mot de passe" />
         </div>
         <div className="admin-field">
-          <img className="password-img" src="src\images\Admin\VectorPassword.svg" alt="password icon" />
+          <img className="password-img" src="src\images\Admin\phone.png" alt="password icon" />
           <input id="adminNumTel" className="admin-input" type="text" placeholder="Numéro de téléphone" />
         </div>
         {errorMessage && (

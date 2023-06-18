@@ -48,7 +48,7 @@ function Admin(){
         <>
         <img className='background-admin' src='src\images\Admin\BackgroundAdmin.png'/>
         <div className='admin-login-wrap'>
-            <img className='admin-logo' src='src\images\Admin\LOGO.png'/>
+            <img className='admin-logo' src='src\images\Admin\adminLogo.svg'/>
             <div className='admin-field'>
                 <img className='account-img' src='src\images\Admin\VectorAccount.svg'/>
                 <input id="adminEmail" className='admin-input' type="text" placeholder="E-mail"/>

@@ -16,3 +16,5 @@ How to install database and run backend server:
   7) Run command `python manage.py migrate`.
   8) Create a superuser to access Django admin panel using command `python manage.py createsuperuser`.
   9) Run backend server using command `python manage.py runserver`. 
+
+Note: Application is not completed yet.
